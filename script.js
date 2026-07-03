@@ -1,105 +1,62 @@
-// ===============================
-// ELEMENTS
-// ===============================
+// Product Image Upload
 
-const logoBtn = document.getElementById("logoBtn");
-const logoInput = document.getElementById("logoInput");
-const logoImage = document.getElementById("logoImage");
-
-const productBtn = document.getElementById("productBtn");
-const productInput = document.getElementById("productInput");
+const uploadInput = document.getElementById("uploadImage");
 const productImage = document.getElementById("productImage");
 
-const downloadBtn = document.getElementById("downloadBtn");
+if (uploadInput && productImage) {
+    uploadInput.addEventListener("change", function (e) {
 
-// ===============================
-// LOGO UPLOAD
-// ===============================
+        const file = e.target.files[0];
 
-logoBtn.onclick = () => logoInput.click();
+        if (!file) return;
 
-logoInput.onchange = e => {
+        const reader = new FileReader();
 
-    const file = e.target.files[0];
+        reader.onload = function (event) {
+            productImage.src = event.target.result;
+        };
 
-    if(!file) return;
+        reader.readAsDataURL(file);
 
-    const reader = new FileReader();
-
-    reader.onload = ev => {
-
-        logoImage.src = ev.target.result;
-
-    }
-
-    reader.readAsDataURL(file);
-
-};
-
-// ===============================
-// PRODUCT UPLOAD
-// ===============================
-
-productBtn.onclick = () => productInput.click();
-
-productInput.onchange = e => {
-
-    const file = e.target.files[0];
-
-    if(!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = ev => {
-
-        productImage.src = ev.target.result;
-
-    }
-
-    reader.readAsDataURL(file);
-
-};
-
-// ===============================
-// DOWNLOAD PNG
-// ===============================
-
-downloadBtn.onclick = () => {
-
-html2canvas(document.getElementById("capture"),{
-
-scale:4,
-useCORS:true
-
-}).then(canvas=>{
-
-const a=document.createElement("a");
-
-a.download="Catalogue.png";
-
-a.href=canvas.toDataURL("image/png");
-
-a.click();
-
-});
-
-};
-
-// ===============================
-// AUTO SAVE
-// ===============================
-
-document.querySelectorAll("[contenteditable]").forEach((el,i)=>{
-
-const key="cat_"+i;
-
-if(localStorage.getItem(key))
-el.innerHTML=localStorage.getItem(key);
-
-el.oninput=()=>{
-
-localStorage.setItem(key,el.innerHTML);
-
+    });
 }
 
+// Make Enter key behave like normal text
+
+document.querySelectorAll("[contenteditable]").forEach(el => {
+
+    el.addEventListener("keydown", function (e) {
+
+        if (e.key === "Enter") {
+
+            e.preventDefault();
+
+            document.execCommand("insertHTML", false, "<br>");
+
+        }
+
+    });
+
 });
+
+// Print Button
+
+const printBtn = document.createElement("button");
+
+printBtn.innerText = "🖨 Print";
+
+printBtn.style.position = "fixed";
+printBtn.style.right = "20px";
+printBtn.style.bottom = "20px";
+printBtn.style.padding = "12px 22px";
+printBtn.style.border = "none";
+printBtn.style.borderRadius = "8px";
+printBtn.style.background = "#b88400";
+printBtn.style.color = "#fff";
+printBtn.style.fontSize = "16px";
+printBtn.style.cursor = "pointer";
+printBtn.style.zIndex = "9999";
+
+document.body.appendChild(printBtn);
+
+printBtn.onclick = () => window.print();
