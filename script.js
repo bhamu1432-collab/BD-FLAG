@@ -1,62 +1,25 @@
-// Product Image Upload
+document.addEventListener("DOMContentLoaded", () => {
+    // Page load par components ko smooth transition dene ke liye js effect
+    const leftContent = document.querySelector('.content-left');
+    const rightContent = document.querySelector('.content-right');
+    
+    // Initial invisible state
+    leftContent.style.opacity = 0;
+    leftContent.style.transform = "translateX(-20px)";
+    leftContent.style.transition = "all 0.8s ease-in-out";
+    
+    rightContent.style.opacity = 0;
+    rightContent.style.transform = "translateX(20px)";
+    rightContent.style.transition = "all 0.8s ease-in-out";
 
-const uploadInput = document.getElementById("uploadImage");
-const productImage = document.getElementById("productImage");
+    // Triggering entry animation
+    setTimeout(() => {
+        leftContent.style.opacity = 1;
+        leftContent.style.transform = "translateX(0)";
+    }, 200);
 
-if (uploadInput && productImage) {
-    uploadInput.addEventListener("change", function (e) {
-
-        const file = e.target.files[0];
-
-        if (!file) return;
-
-        const reader = new FileReader();
-
-        reader.onload = function (event) {
-            productImage.src = event.target.result;
-        };
-
-        reader.readAsDataURL(file);
-
-    });
-}
-
-// Make Enter key behave like normal text
-
-document.querySelectorAll("[contenteditable]").forEach(el => {
-
-    el.addEventListener("keydown", function (e) {
-
-        if (e.key === "Enter") {
-
-            e.preventDefault();
-
-            document.execCommand("insertHTML", false, "<br>");
-
-        }
-
-    });
-
+    setTimeout(() => {
+        rightContent.style.opacity = 1;
+        rightContent.style.transform = "translateX(0)";
+    }, 400);
 });
-
-// Print Button
-
-const printBtn = document.createElement("button");
-
-printBtn.innerText = "🖨 Print";
-
-printBtn.style.position = "fixed";
-printBtn.style.right = "20px";
-printBtn.style.bottom = "20px";
-printBtn.style.padding = "12px 22px";
-printBtn.style.border = "none";
-printBtn.style.borderRadius = "8px";
-printBtn.style.background = "#b88400";
-printBtn.style.color = "#fff";
-printBtn.style.fontSize = "16px";
-printBtn.style.cursor = "pointer";
-printBtn.style.zIndex = "9999";
-
-document.body.appendChild(printBtn);
-
-printBtn.onclick = () => window.print();
