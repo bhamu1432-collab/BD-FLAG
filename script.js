@@ -1,111 +1,197 @@
-// =============================
-// ELEMENTS
-// =============================
-
-const page = document.getElementById("page");
+// ==============================
+// Premium Catalogue Script
+// ==============================
 
 const productImage = document.getElementById("productImage");
-const logo = document.getElementById("logo");
+const zoomImage = document.getElementById("zoomImage");
 
-const imageUpload = document.getElementById("imageUpload");
-const logoUpload = document.getElementById("logoUpload");
-const bgUpload = document.getElementById("bgUpload");
+const imageInput = document.getElementById("imageInput");
+const changeImage = document.getElementById("changeImage");
 
-const downloadPNG = document.getElementById("downloadPNG");
-const downloadPDF = document.getElementById("downloadPDF");
+const downloadBtn = document.getElementById("downloadBtn");
 
+const catalogue = document.getElementById("catalogue");
 
-// =============================
-// PRODUCT IMAGE CHANGE
-// =============================
+//========================
+// Change Image
+//========================
 
-imageUpload.addEventListener("change", e => {
+changeImage.addEventListener("click", () => {
+    imageInput.click();
+});
 
-const file = e.target.files[0];
+imageInput.addEventListener("change", function () {
 
-if(!file) return;
+    const file = this.files[0];
 
-const reader = new FileReader();
+    if (!file) return;
 
-reader.onload = function(ev){
+    const reader = new FileReader();
 
-productImage.src = ev.target.result;
+    reader.onload = function (e) {
 
-}
+        productImage.src = e.target.result;
+        zoomImage.src = e.target.result;
 
-reader.readAsDataURL(file);
+        localStorage.setItem("productImage", e.target.result);
+
+    };
+
+    reader.readAsDataURL(file);
 
 });
 
+//========================
+// Restore Image
+//========================
 
-// =============================
-// LOGO CHANGE
-// =============================
+window.addEventListener("load", () => {
 
-logoUpload.addEventListener("change", e => {
+    const img = localStorage.getItem("productImage");
 
-const file = e.target.files[0];
+    if (img) {
 
-if(!file) return;
+        productImage.src = img;
+        zoomImage.src = img;
 
-const reader = new FileReader();
-
-reader.onload = function(ev){
-
-logo.src = ev.target.result;
-
-}
-
-reader.readAsDataURL(file);
+    }
 
 });
 
+//========================
+// Save Editable Text
+//========================
 
-// =============================
-// BACKGROUND CHANGE
-// =============================
+const editable = document.querySelectorAll("[contenteditable='true']");
 
-bgUpload.addEventListener("change", e=>{
+editable.forEach((item, index) => {
 
-const file = e.target.files[0];
+    const key = "editable_" + index;
 
-if(!file) return;
+    const saved = localStorage.getItem(key);
 
-const reader = new FileReader();
+    if (saved) {
 
-reader.onload = function(ev){
+        item.innerHTML = saved;
 
-page.style.backgroundImage =
-`url(${ev.target.result})`;
+    }
 
-page.style.backgroundSize = "cover";
+    item.addEventListener("input", () => {
 
-page.style.backgroundPosition = "center";
+        localStorage.setItem(key, item.innerHTML);
 
-}
-
-reader.readAsDataURL(file);
+    });
 
 });
 
+//========================
+// Undo / Redo
+//========================
 
-// =============================
-// DRAG & DROP IMAGE
-// =============================
+document.addEventListener("keydown", function (e) {
 
-const preview = document.getElementById("dropZone");
+    if (e.ctrlKey && e.key === "z") {
 
-preview.addEventListener("dragover",(e)=>{
+        e.preventDefault();
+        document.execCommand("undo");
 
-e.preventDefault();
+    }
 
-preview.style.borderColor="#ff7a00";
+    if (e.ctrlKey && e.key === "y") {
+
+        e.preventDefault();
+        document.execCommand("redo");
+
+    }
 
 });
 
-preview.addEventListener("dragleave",()=>{
+//========================
+// Download JPG
+//========================
 
-preview.style.borderColor="#d4af37";
+downloadBtn.addEventListener("click", () => {
+
+    html2canvas(catalogue, {
+
+        scale:3,
+        useCORS:true,
+        backgroundColor:null
+
+    }).then(canvas => {
+
+        const link = document.createElement("a");
+
+        link.download = "Bhagwan-Catalogue.jpg";
+
+        link.href = canvas.toDataURL("image/jpeg",1);
+
+        link.click();
+
+    });
+
+});
+
+//========================
+// Double Click Image
+//========================
+
+productImage.addEventListener("dblclick", () => {
+
+    imageInput.click();
+
+});
+
+//========================
+// Zoom Sync
+//========================
+
+productImage.onload = () => {
+
+    zoomImage.src = productImage.src;
+
+};
+
+//========================
+// Drag Image
+//========================
+
+let isDragging = false;
+
+let startX = 0;
+let startY = 0;
+
+let posX = 0;
+let posY = 0;
+
+productImage.style.position = "relative";
+
+productImage.addEventListener("mousedown", e => {
+
+    isDragging = true;
+
+    startX = e.clientX - posX;
+    startY = e.clientY - posY;
+
+});
+
+document.addEventListener("mousemove", e => {
+
+    if (!isDragging) return;
+
+    posX = e.clientX - startX;
+    posY = e.clientY - startY;
+
+    productImage.style.left = posX + "px";
+    productImage.style.top = posY + "px";
+
+});
+
+document.addEventListener("mouseup", () => {
+
+    isDragging = false;
+
+});preview.style.borderColor="#d4af37";
 
 });
 
