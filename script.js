@@ -1,6 +1,6 @@
-// =========================
+// ===============================
 // ELEMENTS
-// =========================
+// ===============================
 
 const logoBtn = document.getElementById("logoBtn");
 const logoInput = document.getElementById("logoInput");
@@ -12,166 +12,94 @@ const productImage = document.getElementById("productImage");
 
 const downloadBtn = document.getElementById("downloadBtn");
 
-
-// =========================
+// ===============================
 // LOGO UPLOAD
-// =========================
+// ===============================
 
-logoBtn.addEventListener("click", () => logoInput.click());
+logoBtn.onclick = () => logoInput.click();
 
-logoInput.addEventListener("change", function () {
+logoInput.onchange = e => {
 
-    const file = this.files[0];
+    const file = e.target.files[0];
 
-    if (!file) return;
+    if(!file) return;
 
     const reader = new FileReader();
 
-    reader.onload = e => {
+    reader.onload = ev => {
 
-        logoImage.src = e.target.result;
+        logoImage.src = ev.target.result;
 
-    };
+    }
 
     reader.readAsDataURL(file);
 
-});
+};
 
-
-// =========================
+// ===============================
 // PRODUCT UPLOAD
-// =========================
+// ===============================
 
-productBtn.addEventListener("click", () => productInput.click());
+productBtn.onclick = () => productInput.click();
 
-productInput.addEventListener("change", function () {
+productInput.onchange = e => {
 
-    const file = this.files[0];
+    const file = e.target.files[0];
 
-    if (!file) return;
+    if(!file) return;
 
     const reader = new FileReader();
 
-    reader.onload = e => {
+    reader.onload = ev => {
 
-        productImage.src = e.target.result;
+        productImage.src = ev.target.result;
 
-    };
+    }
 
     reader.readAsDataURL(file);
 
-});
+};
 
+// ===============================
+// DOWNLOAD PNG
+// ===============================
 
-// =========================
-// DOWNLOAD A4
-// =========================
+downloadBtn.onclick = () => {
 
-downloadBtn.addEventListener("click", () => {
+html2canvas(document.getElementById("capture"),{
 
-    document.body.classList.add("download-mode");
+scale:4,
+useCORS:true
 
-    html2canvas(document.getElementById("capture"), {
+}).then(canvas=>{
 
-        scale:4,
-        useCORS:true,
-        backgroundColor:null
+const a=document.createElement("a");
 
-    }).then(canvas => {
+a.download="Catalogue.png";
 
-        const link = document.createElement("a");
+a.href=canvas.toDataURL("image/png");
 
-        link.download = "Catalogue-A4.png";
-
-        link.href = canvas.toDataURL("image/png");
-
-        link.click();
-
-        document.body.classList.remove("download-mode");
-
-    });
+a.click();
 
 });
 
+};
 
-// =========================
-// AUTO SAVE TEXT
-// =========================
+// ===============================
+// AUTO SAVE
+// ===============================
 
-const editable = document.querySelectorAll("[contenteditable='true']");
+document.querySelectorAll("[contenteditable]").forEach((el,i)=>{
 
-editable.forEach((el, i) => {
+const key="cat_"+i;
 
-    const key = "catalogue_" + i;
+if(localStorage.getItem(key))
+el.innerHTML=localStorage.getItem(key);
 
-    if (localStorage.getItem(key)) {
+el.oninput=()=>{
 
-        el.innerHTML = localStorage.getItem(key);
+localStorage.setItem(key,el.innerHTML);
 
-    }
-
-    el.addEventListener("input", () => {
-
-        localStorage.setItem(key, el.innerHTML);
-
-    });
-
-});
-
-
-// =========================
-// DRAG PRODUCT IMAGE
-// =========================
-
-let dragging = false;
-let offsetX = 0;
-let offsetY = 0;
-
-productImage.style.position = "relative";
-
-productImage.addEventListener("mousedown", e => {
-
-    dragging = true;
-
-    offsetX = e.offsetX;
-
-    offsetY = e.offsetY;
-
-});
-
-document.addEventListener("mousemove", e => {
-
-    if (!dragging) return;
-
-    productImage.style.position = "absolute";
-
-    productImage.style.left =
-        (e.pageX - productImage.parentElement.offsetLeft - offsetX) + "px";
-
-    productImage.style.top =
-        (e.pageY - productImage.parentElement.offsetTop - offsetY) + "px";
-
-});
-
-document.addEventListener("mouseup", () => {
-
-    dragging = false;
-
-});
-
-
-// =========================
-// PRINT
-// =========================
-
-window.addEventListener("keydown", e => {
-
-    if (e.ctrlKey && e.key === "p") {
-
-        e.preventDefault();
-
-        window.print();
-
-    }
+}
 
 });
