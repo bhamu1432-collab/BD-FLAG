@@ -1,183 +1,67 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const dropZoneElement = document.getElementById("imageDropZone");
+    const inputElement = document.getElementById("fileInput");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const bannerElement = document.getElementById("banner");
 
-const productDrop=document.getElementById("imageDrop");
-const productInput=document.getElementById("imageInput");
-const productImg=document.getElementById("productPreview");
-const placeholder=document.querySelector(".placeholder");
+    // Click to upload image
+    dropZoneElement.addEventListener("click", () => { inputElement.click(); });
+    inputElement.addEventListener("change", () => {
+        if (inputElement.files.length) updateThumbnail(dropZoneElement, inputElement.files[0]);
+    });
 
-productDrop.onclick=()=>productInput.click();
+    // Drag & Drop event listeners
+    dropZoneElement.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZoneElement.classList.add("drop-zone--over");
+    });
+    ["dragleave", "dragend"].forEach((type) => {
+        dropZoneElement.addEventListener(type, () => { dropZoneElement.classList.remove("drop-zone--over"); });
+    });
+    dropZoneElement.addEventListener("drop", (e) => {
+        e.preventDefault();
+        if (e.dataTransfer.files.length) {
+            inputElement.files = e.dataTransfer.files;
+            updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+        }
+        dropZoneElement.classList.remove("drop-zone--over");
+    });
 
-productInput.onchange=e=>{
-loadImage(e.target.files[0]);
-};
-
-productDrop.addEventListener("dragover",e=>{
-e.preventDefault();
-productDrop.style.borderColor="#0b7cff";
+    // --- 1-CLICK IMAGE DOWNLOAD LOGIC ---
+    downloadBtn.addEventListener("click", () => {
+        // html2canvas banner div ko scan karke image data me badalta hai
+        html2canvas(bannerElement, {
+            useCORS: true,       // external images clear aane ke liye
+            scale: 2,            // Image ko high quality (HD) rakhne ke liye
+            backgroundColor: null // transparency maintain karne ke liye
+        }).then(canvas => {
+            // Canvas ko PNG url me convert kiya
+            const imageURL = canvas.toDataURL("image/png");
+            
+            // Ek temporary anchor link banakar automatically click karwaya download ke liye
+            const createLink = document.createElement("a");
+            createLink.download = "custom-bhagwan-banner.png";
+            createLink.href = imageURL;
+            createLink.click();
+        });
+    });
 });
 
-productDrop.addEventListener("dragleave",()=>{
-productDrop.style.borderColor="#d4af37";
-});
-
-productDrop.addEventListener("drop",e=>{
-e.preventDefault();
-productDrop.style.borderColor="#d4af37";
-loadImage(e.dataTransfer.files[0]);
-});
-
-function loadImage(file){
-
-if(!file)return;
-
-const reader=new FileReader();
-
-reader.onload=e=>{
-
-productImg.src=e.target.result;
-
-productImg.style.display="block";
-
-placeholder.style.display="none";
-
-};
-
-reader.readAsDataURL(file);
-
+function updateThumbnail(dropZoneElement, file) {
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone-thumb");
+    if (dropZoneElement.querySelector(".drop-zone-prompt")) {
+        dropZoneElement.querySelector(".drop-zone-prompt").remove();
+    }
+    if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone-thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+    }
+    if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.onload = () => { thumbnailElement.style.backgroundImage = `url('${reader.result}')`; };
+        reader.readAsDataURL(file);
+    } else {
+        thumbnailElement.style.backgroundImage = null;
+    }
 }
-
-
-// Logo
-
-const logoDrop=document.getElementById("logoDrop");
-const logoInput=document.getElementById("logoInput");
-const logoPreview=document.getElementById("logoPreview");
-const logoText=document.querySelector(".drop-text");
-
-logoDrop.onclick=()=>logoInput.click();
-
-logoInput.onchange=e=>{
-
-loadLogo(e.target.files[0]);
-
-};
-
-logoDrop.addEventListener("dragover",e=>{
-
-e.preventDefault();
-
-});
-
-logoDrop.addEventListener("drop",e=>{
-
-e.preventDefault();
-
-loadLogo(e.dataTransfer.files[0]);
-
-});
-
-function loadLogo(file){
-
-if(!file)return;
-
-const reader=new FileReader();
-
-reader.onload=e=>{
-
-logoPreview.src=e.target.result;
-
-logoPreview.style.display="block";
-
-logoText.style.display="none";
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-
-// PNG Download
-
-document.getElementById("downloadPNG").onclick=async()=>{
-
-const canvas=await html2canvas(document.getElementById("catalogue"),{
-
-scale:3,
-
-backgroundColor:"#ffffff",
-
-useCORS:true
-
-});
-
-const a=document.createElement("a");
-
-a.download="Catalogue.png";
-
-a.href=canvas.toDataURL("image/png");
-
-a.click();
-
-};
-
-
-// PDF Download
-
-document.getElementById("downloadPDF").onclick=async()=>{
-
-const canvas=await html2canvas(document.getElementById("catalogue"),{
-
-scale:3,
-
-backgroundColor:"#ffffff",
-
-useCORS:true
-
-});
-
-const img=canvas.toDataURL("image/png");
-
-const {jsPDF}=window.jspdf;
-
-const pdf=new jsPDF("p","mm","a4");
-
-pdf.addImage(img,"PNG",0,0,210,297);
-
-pdf.save("Catalogue.pdf");
-
-};
-
-
-// Disable spellcheck
-
-document.querySelectorAll("[contenteditable]").forEach(el=>{
-
-el.spellcheck=false;
-
-});
-
-
-// Gold glow animation
-
-setInterval(()=>{
-
-document.querySelectorAll(".toolbar button,.code").forEach(el=>{
-
-el.animate([
-
-{filter:"brightness(1)"},
-
-{filter:"brightness(1.3)"},
-
-{filter:"brightness(1)"}
-
-],{
-
-duration:1800
-
-});
-
-});
-
-},2500);
