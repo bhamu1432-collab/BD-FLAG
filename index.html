@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Premium Independence Catalogue</title>
 
@@ -21,121 +20,157 @@
 <div class="toolbar">
 
 <button id="downloadPNG">
-📥 Download PNG
+Download PNG
 </button>
 
 <button id="downloadPDF">
-📄 Download PDF
+Download PDF
+</button>
+
+<button onclick="window.print()">
+Print
 </button>
 
 </div>
 
+
 <div id="catalogue">
 
-<div class="topBorder"></div>
+<div class="top-strip"></div>
 
 <header>
 
-<div class="logoArea">
+<div class="logo-section">
 
-<div class="logoDrop" id="logoDrop">
+<div class="logo-drop" id="logoDrop">
 
-<input type="file"
+<input
+type="file"
 id="logoInput"
 accept="image/*"
 hidden>
 
 <img id="logoPreview">
 
-<span>Drop Logo</span>
+<div class="drop-text">
+
+Drop Logo
 
 </div>
 
 </div>
 
-<div class="brand">
+</div>
+
+<div class="title">
 
 <h1 contenteditable="true">
+
 BHAGWAN DECORATION
+
 </h1>
 
-<p contenteditable="true">
+<h3 contenteditable="true">
+
 Premium Independence Collection
+
+</h3>
+
+<p contenteditable="true">
+
+Celebrate Freedom With Premium Quality Products
+
 </p>
 
 </div>
 
 </header>
 
-<section class="main">
 
-<div class="left">
 
-<div class="badge"
-contenteditable="true">
-ITEM CODE
+<section class="hero">
+
+<div class="details">
+
+<div class="code" contenteditable="true">
+
+ITEM CODE : BD-101
+
 </div>
 
 <h2 contenteditable="true">
+
 Premium Product Name
+
 </h2>
 
 <p contenteditable="true">
-Write Premium Description Here...
+
+Write your product description here.
+
+Everything is editable.
+
 </p>
 
-<div class="feature">
+<div class="features">
 
-✔ Premium Quality
+<div class="feature" contenteditable="true">
 
-</div>
-
-<div class="feature">
-
-✔ Made In India
+Premium Finish
 
 </div>
 
-<div class="feature">
+<div class="feature" contenteditable="true">
 
-✔ Attractive Finish
+Made In India
 
 </div>
 
-<div class="feature">
+<div class="feature" contenteditable="true">
 
-✔ Best Seller
+Festival Special
+
+</div>
+
+<div class="feature" contenteditable="true">
+
+Best Selling Product
+
+</div>
 
 </div>
 
 <div class="price">
 
-<span contenteditable="true">
-
-₹499
-
-</span>
+₹ <span contenteditable="true">499</span>
 
 </div>
 
 </div>
 
-<div class="right">
 
-<div class="imageDrop"
+
+<div class="image-box">
+
+<div class="product-drop"
+
 id="imageDrop">
 
 <input
+
 type="file"
-accept="image/*"
+
 id="imageInput"
+
+accept="image/*"
+
 hidden>
 
 <img id="productPreview">
 
 <div class="placeholder">
 
-Drop Product Image
+Drag & Drop Product Image
 
 </div>
 
@@ -145,45 +180,91 @@ Drop Product Image
 
 </section>
 
-<footer>
+
+
+<section class="info">
 
 <div class="card">
 
-<h3>Packing</h3>
+<h4>
+
+Packing
+
+</h4>
 
 <p contenteditable="true">
+
 10 PCS
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>Size</h3>
+<h4>
+
+Size
+
+</h4>
 
 <p contenteditable="true">
+
 12 Inch
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>Category</h3>
+<h4>
+
+Category
+
+</h4>
 
 <p contenteditable="true">
+
 Decoration
+
 </p>
 
 </div>
 
-</footer>
+</section>
 
-<div class="chakra"></div>
 
-<div class="bottomBorder"></div>
+
+<div class="contact">
+
+<p contenteditable="true">
+
+📞 +91 9876543210
+
+</p>
+
+<p contenteditable="true">
+
+📍 Your Address Here
+
+</p>
 
 </div>
+
+
+
+<div class="chakra">
+
+</div>
+
+<div class="bottom-strip">
+
+</div>
+
+</div>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
