@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Bhagwan Decoration Catalogue</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Bhagwan Decoration</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 </head>
 
@@ -21,11 +22,11 @@
 
 <div class="toolbar">
 
-<button id="downloadBtn">
+<button id="download">
 Download JPG
 </button>
 
-<button id="changeImage">
+<button id="changeImageBtn">
 Change Image
 </button>
 
@@ -37,53 +38,61 @@ hidden>
 
 </div>
 
-
 <div id="catalogue">
 
-<div class="goldBorder"></div>
+<img
+src="background.png"
+class="bg">
 
-<div class="corner tl"></div>
-<div class="corner tr"></div>
-<div class="corner bl"></div>
-<div class="corner br"></div>
+<div class="overlay"></div>
 
-<!-- Left Side -->
+<!-- LEFT -->
 
 <div class="left">
 
-<div class="brand">
+<div class="logo">
 
 <h1 contenteditable="true">
+
 BHAGWAN
+
 </h1>
 
 <h2 contenteditable="true">
+
 DECORATION
+
 </h2>
 
 </div>
 
-<div class="productTitle">
+<div class="productName">
 
 <h3 contenteditable="true">
+
 TIRANGA
+
 </h3>
 
 <h4 contenteditable="true">
+
 BUNTY LADY
+
 </h4>
 
 </div>
 
-<div class="code">
+<div class="itemCode">
 
-<span>
+<label>
+
 ITEM CODE
-</span>
+
+</label>
 
 <div
-contenteditable="true"
-class="codeBox">
+class="code"
+contenteditable="true">
 
 BD-004
 
@@ -95,19 +104,13 @@ BD-004
 
 <div class="feature">
 
-<div class="icon">
-↔
-</div>
+<img src="icons/length.png">
 
 <div>
 
-<b contenteditable="true">
-5 Feet
-</b>
+<b>5 Feet</b>
 
-<p contenteditable="true">
-LONG
-</p>
+<span>LONG</span>
 
 </div>
 
@@ -115,19 +118,13 @@ LONG
 
 <div class="feature">
 
-<div class="icon">
-📦
-</div>
+<img src="icons/packing.png">
 
 <div>
 
-<b contenteditable="true">
-Pack of 5
-</b>
+<b>Pack Of 5</b>
 
-<p contenteditable="true">
-PACKING
-</p>
+<span>PACKING</span>
 
 </div>
 
@@ -135,19 +132,13 @@ PACKING
 
 <div class="feature">
 
-<div class="icon">
-★
-</div>
+<img src="icons/quality.png">
 
 <div>
 
-<b contenteditable="true">
-Premium Quality
-</b>
+<b>Premium Quality</b>
 
-<p contenteditable="true">
-PREMIUM FINISH
-</p>
+<span>Premium Finish</span>
 
 </div>
 
@@ -155,19 +146,13 @@ PREMIUM FINISH
 
 <div class="feature">
 
-<div class="icon">
-🇮🇳
-</div>
+<img src="icons/india.png">
 
 <div>
 
-<b contenteditable="true">
-Tricolor Decoration
-</b>
+<b>Tricolor Decoration</b>
 
-<p contenteditable="true">
-Perfect For All Occasions
-</p>
+<span>Perfect For All Occasions</span>
 
 </div>
 
@@ -183,13 +168,11 @@ Perfect For All Occasions
 
 <img
 
-id="productImage"
+id="product"
 
-src="product.png"
+src="product.png">
 
-alt="product">
-
-<div class="zoomCircle">
+<div class="zoom">
 
 <img
 
@@ -202,59 +185,55 @@ src="product.png">
 </div>
 <!-- Bottom Section -->
 
-<div class="bottomSection">
+<div class="bottom">
 
-    <div class="box">
+    <div class="packBox">
 
-        <img src="icons/packet.png" alt="Packet">
+        <img src="icons/packet.png">
 
-        <div class="boxText">
+        <div>
 
             <h2 contenteditable="true">5</h2>
 
-            <span>PC</span>
-
-            <p contenteditable="true">PACKET</p>
+            <p>PC PACKET</p>
 
         </div>
 
     </div>
 
-    <div class="box">
+    <div class="packBox">
 
-        <img src="icons/carton.png" alt="Carton">
+        <img src="icons/carton.png">
 
-        <div class="boxText">
+        <div>
 
             <h2 contenteditable="true">50</h2>
 
-            <span>PACKET</span>
-
-            <p contenteditable="true">CARTOON</p>
+            <p>PACKET CARTON</p>
 
         </div>
 
     </div>
 
-    <div class="priceBadge">
+    <div class="priceCircle">
 
-        <div class="badge">
+        <span>PRICE CATEGORY</span>
 
-            <small>PRICE CATEGORY</small>
-
-            <h1 contenteditable="true">A1</h1>
-
-        </div>
+        <h1 contenteditable="true">A1</h1>
 
     </div>
 
 </div>
 
-<!-- Footer -->
+<!-- Golden Footer -->
 
 <div class="footer">
 
-    <span>★ ★ ★</span>
+<div class="goldLine"></div>
+
+<div class="stars">
+★ ★ ★ ★ ★
+</div>
 
 </div>
 
