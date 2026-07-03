@@ -1,45 +1,19 @@
-let products = [];
-let current = 0;
-
-fetch("products.json")
-.then(res => res.json())
-.then(data => {
-    products = data;
-    showProduct(0);
+document.querySelectorAll(".card").forEach(card=>{
+card.addEventListener("mouseenter",()=>{
+card.style.transform="translateY(-8px) scale(1.03)";
 });
 
-function showProduct(index){
+card.addEventListener("mouseleave",()=>{
+card.style.transform="translateY(0) scale(1)";
+});
+});
 
-    const p = products[index];
+const product=document.querySelector(".product");
 
-    document.getElementById("productName").innerHTML = p.name;
-    document.getElementById("itemCode").innerHTML = p.code;
-    document.getElementById("length").innerHTML = p.length;
-    document.getElementById("packing").innerHTML = p.packing;
-    document.getElementById("category").innerHTML = p.category;
-    document.getElementById("carton").innerHTML = p.carton;
+document.addEventListener("mousemove",(e)=>{
 
-    document.getElementById("productImage").src = p.image;
-}
+const x=(window.innerWidth/2-e.pageX)/40;
+const y=(window.innerHeight/2-e.pageY)/40;
 
-function nextProduct(){
-
-    current++;
-
-    if(current>=products.length){
-        current=0;
-    }
-
-    showProduct(current);
-}
-
-function previousProduct(){
-
-    current--;
-
-    if(current<0){
-        current=products.length-1;
-    }
-
-    showProduct(current);
-}
+product.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
+});
