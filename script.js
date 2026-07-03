@@ -1,6 +1,6 @@
-/* ===========================
-   ELEMENTS
-=========================== */
+// =============================
+// ELEMENTS
+// =============================
 
 const page = document.getElementById("page");
 
@@ -8,30 +8,28 @@ const productImage = document.getElementById("productImage");
 const logo = document.getElementById("logo");
 
 const imageUpload = document.getElementById("imageUpload");
-const bgUpload = document.getElementById("bgUpload");
 const logoUpload = document.getElementById("logoUpload");
+const bgUpload = document.getElementById("bgUpload");
 
 const downloadPNG = document.getElementById("downloadPNG");
 const downloadPDF = document.getElementById("downloadPDF");
 
-const dropZone = document.getElementById("dropZone");
 
+// =============================
+// PRODUCT IMAGE CHANGE
+// =============================
 
-/* ===========================
-   PRODUCT IMAGE CHANGE
-=========================== */
+imageUpload.addEventListener("change", e => {
 
-imageUpload.addEventListener("change", function () {
-
-const file = this.files[0];
+const file = e.target.files[0];
 
 if(!file) return;
 
 const reader = new FileReader();
 
-reader.onload = function(e){
+reader.onload = function(ev){
 
-productImage.src = e.target.result;
+productImage.src = ev.target.result;
 
 }
 
@@ -40,21 +38,21 @@ reader.readAsDataURL(file);
 });
 
 
-/* ===========================
-   LOGO CHANGE
-=========================== */
+// =============================
+// LOGO CHANGE
+// =============================
 
-logoUpload.addEventListener("change", function () {
+logoUpload.addEventListener("change", e => {
 
-const file = this.files[0];
+const file = e.target.files[0];
 
 if(!file) return;
 
 const reader = new FileReader();
 
-reader.onload = function(e){
+reader.onload = function(ev){
 
-logo.src = e.target.result;
+logo.src = ev.target.result;
 
 }
 
@@ -63,24 +61,25 @@ reader.readAsDataURL(file);
 });
 
 
-/* ===========================
-   BACKGROUND CHANGE
-=========================== */
+// =============================
+// BACKGROUND CHANGE
+// =============================
 
-bgUpload.addEventListener("change", function () {
+bgUpload.addEventListener("change", e=>{
 
-const file = this.files[0];
+const file = e.target.files[0];
 
 if(!file) return;
 
 const reader = new FileReader();
 
-reader.onload = function(e){
+reader.onload = function(ev){
 
 page.style.backgroundImage =
-`url(${e.target.result})`;
+`url(${ev.target.result})`;
 
 page.style.backgroundSize = "cover";
+
 page.style.backgroundPosition = "center";
 
 }
@@ -90,29 +89,31 @@ reader.readAsDataURL(file);
 });
 
 
-/* ===========================
-   DRAG & DROP IMAGE
-=========================== */
+// =============================
+// DRAG & DROP IMAGE
+// =============================
 
-dropZone.addEventListener("dragover",function(e){
+const preview = document.getElementById("dropZone");
 
-e.preventDefault();
-
-dropZone.classList.add("dragover");
-
-});
-
-dropZone.addEventListener("dragleave",function(){
-
-dropZone.classList.remove("dragover");
-
-});
-
-dropZone.addEventListener("drop",function(e){
+preview.addEventListener("dragover",(e)=>{
 
 e.preventDefault();
 
-dropZone.classList.remove("dragover");
+preview.style.borderColor="#ff7a00";
+
+});
+
+preview.addEventListener("dragleave",()=>{
+
+preview.style.borderColor="#d4af37";
+
+});
+
+preview.addEventListener("drop",(e)=>{
+
+e.preventDefault();
+
+preview.style.borderColor="#d4af37";
 
 const file = e.dataTransfer.files[0];
 
@@ -120,9 +121,9 @@ if(!file) return;
 
 const reader = new FileReader();
 
-reader.onload=function(event){
+reader.onload=function(ev){
 
-productImage.src = event.target.result;
+productImage.src=ev.target.result;
 
 }
 
