@@ -1,512 +1,283 @@
-/* =====================================
-   GOOGLE FONTS
-===================================== */
+/* ===========================
+   BHAGWAN DECORATION
+   PREMIUM CATALOGUE
+=========================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-
-font-family:'Poppins',sans-serif;
-
-background:
-linear-gradient(135deg,
-#ff9933 0%,
-#fff8ef 35%,
-#ffffff 55%,
-#effff2 70%,
-#138808 100%);
-
-min-height:100vh;
-
-padding:30px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:flex-start;
-
+    background:#e9e9e9;
+    font-family:'Poppins',sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:30px;
 }
 
-/* ==========================
-Toolbar
-========================== */
+/* Toolbar */
 
 .toolbar{
-
-position:fixed;
-
-top:20px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-display:flex;
-
-gap:12px;
-
-padding:12px 18px;
-
-border-radius:60px;
-
-background:rgba(255,255,255,.82);
-
-backdrop-filter:blur(16px);
-
-box-shadow:
-
-0 12px 35px rgba(0,0,0,.18);
-
-z-index:999;
-
+    width:794px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:20px;
 }
 
 .toolbar button{
-
-border:none;
-
-padding:12px 22px;
-
-border-radius:40px;
-
-font-weight:600;
-
-cursor:pointer;
-
-font-size:15px;
-
-color:#fff;
-
-background:linear-gradient(90deg,#ff7a00,#ffb300);
-
-transition:.3s;
-
+    background:linear-gradient(135deg,#d29a17,#ffdb72);
+    color:#fff;
+    border:none;
+    padding:12px 26px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+    transition:.3s;
 }
 
 .toolbar button:hover{
+    transform:translateY(-2px);
+}
 
-transform:translateY(-3px);
+/* A4 */
 
-box-shadow:
+#catalogue{
 
-0 8px 20px rgba(255,136,0,.45);
+    width:794px;
+    height:1123px;
+
+    background:
+    radial-gradient(circle at top left,#fff6dc 0,#ffffff 22%),
+    linear-gradient(180deg,#ffffff,#faf8f2);
+
+    position:relative;
+    overflow:hidden;
+
+    border:3px solid #c9971f;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.25);
 
 }
 
-/* ==========================
-A4 Page
-========================== */
+/* Luxury Border */
 
-.page{
+.goldBorder{
 
-margin-top:100px;
+    position:absolute;
+    inset:12px;
 
-width:210mm;
+    border:2px solid #d7af49;
 
-height:297mm;
-
-background:#fff;
-
-border-radius:18px;
-
-overflow:hidden;
-
-position:relative;
-
-box-shadow:
-
-0 25px 70px rgba(0,0,0,.25);
+    pointer-events:none;
 
 }
 
-/* Tricolor Background */
+/* Corners */
 
-.page::before{
+.corner{
+
+    position:absolute;
+
+    width:45px;
+    height:45px;
+
+    border:3px solid #b88914;
+
+}
+
+.tl{
+left:10px;
+top:10px;
+border-right:none;
+border-bottom:none;
+}
+
+.tr{
+right:10px;
+top:10px;
+border-left:none;
+border-bottom:none;
+}
+
+.bl{
+left:10px;
+bottom:10px;
+border-right:none;
+border-top:none;
+}
+
+.br{
+right:10px;
+bottom:10px;
+border-left:none;
+border-top:none;
+}
+
+/* Decorative Glow */
+
+#catalogue::before{
 
 content:"";
 
 position:absolute;
 
-inset:0;
+left:-60px;
+top:-40px;
 
-background:
+width:250px;
+height:250px;
 
-linear-gradient(
+background:radial-gradient(#ffd87a,transparent 70%);
 
-180deg,
+opacity:.45;
 
-rgba(255,153,51,.12),
-
-rgba(255,255,255,.04),
-
-rgba(19,136,8,.12)
-
-);
+filter:blur(12px);
 
 }
 
-/* Mandala */
-
-.page::after{
+#catalogue::after{
 
 content:"";
 
 position:absolute;
 
-width:650px;
+right:-80px;
+bottom:-80px;
 
-height:650px;
+width:260px;
+height:260px;
 
-top:50%;
+background:radial-gradient(#ffe7a6,transparent 70%);
 
-left:50%;
+opacity:.35;
 
-transform:translate(-50%,-50%);
+filter:blur(15px);
 
-background:url("assets/mandala.png");
+}
 
-background-size:contain;
+/* Left */
 
-background-repeat:no-repeat;
+.left{
 
-opacity:.06;
-
-pointer-events:none;
-
-}/* ==========================================
-   PREMIUM GOLD BORDER
-========================================== */
-
-.border{
 position:absolute;
-inset:14px;
-border:4px solid #d4af37;
-border-radius:16px;
-padding:25px;
-background:rgba(255,255,255,.88);
-backdrop-filter:blur(6px);
-overflow:hidden;
+
+left:45px;
+top:55px;
+
+width:310px;
+
 }
 
-.border::before{
-content:"";
-position:absolute;
-inset:8px;
-border:2px solid rgba(212,175,55,.55);
-border-radius:10px;
-pointer-events:none;
-}
+/* Brand */
 
-/* ==========================================
-   HEADER
-========================================== */
+.brand h1{
 
-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:25px;
-}
+font-family:'Cinzel',serif;
 
-.logo{
-width:95px;
-height:95px;
-border-radius:50%;
-background:#fff;
-border:4px solid #d4af37;
-box-shadow:0 8px 25px rgba(212,175,55,.35);
-overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+font-size:72px;
 
-.logo img{
-width:85%;
-height:85%;
-object-fit:contain;
-}
+font-weight:800;
 
-.heading{
-flex:1;
-text-align:center;
-padding:0 20px;
-}
+line-height:70px;
 
-.heading h1{
-font-family:"Cinzel",serif;
-font-size:42px;
-font-weight:700;
-color:#8b0000;
 letter-spacing:2px;
-text-shadow:2px 2px 6px rgba(0,0,0,.15);
-outline:none;
-}
 
-.heading h2{
-margin-top:8px;
-font-family:"Great Vibes",cursive;
-font-size:38px;
-font-weight:400;
-background:linear-gradient(90deg,#ff7b00,#138808);
+background:linear-gradient(#ffdd83,#bb7a00);
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-outline:none;
-}
-
-.badge{
-padding:12px 22px;
-border-radius:40px;
-font-weight:700;
-color:#fff;
-background:linear-gradient(135deg,#ff7a00,#138808);
-box-shadow:0 8px 20px rgba(0,0,0,.18);
-}
-
-/* ==========================================
-   CONTENT
-========================================== */
-
-.content{
-display:flex;
-gap:25px;
-margin-top:10px;
-}
-
-.details{
-width:36%;
-display:flex;
-flex-direction:column;
-gap:16px;
-}
-
-.card{
-background:rgba(255,255,255,.82);
-border-left:6px solid #ff9933;
-border-radius:14px;
-padding:14px 16px;
-font-size:17px;
-font-weight:600;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-outline:none;
-transition:.25s;
-}
-
-.card:nth-child(even){
-border-left-color:#138808;
-}
-
-.card:hover{
-transform:translateX(5px);
-}/* ==========================================
-   PRODUCT PREVIEW
-========================================== */
-
-.preview{
-flex:1;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-min-height:640px;
-
-border:4px dashed rgba(212,175,55,.6);
-
-border-radius:24px;
-
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.95),
-rgba(255,248,235,.95)
-);
-
-overflow:hidden;
-
-transition:.3s;
-}
-
-.preview:hover{
-
-border-color:#ff9933;
-
-box-shadow:
-
-0 15px 40px rgba(255,153,51,.18);
 
 }
 
-.preview::before{
+.brand h2{
 
-content:"DROP PRODUCT IMAGE";
+font-size:26px;
 
-position:absolute;
+letter-spacing:9px;
 
-top:20px;
+font-weight:500;
 
-left:50%;
+margin-top:8px;
 
-transform:translateX(-50%);
-
-font-size:13px;
-
-font-weight:700;
-
-letter-spacing:2px;
-
-color:#999;
+color:#222;
 
 }
 
-#productImage{
+/* Product */
 
-max-width:92%;
+.productTitle{
 
-max-height:560px;
-
-object-fit:contain;
-
-cursor:move;
-
-filter:
-
-drop-shadow(0 25px 30px rgba(0,0,0,.18));
-
-transition:.35s;
-
-user-select:none;
+margin-top:65px;
 
 }
 
-#productImage:hover{
+.productTitle h3{
 
-transform:scale(1.03);
+font-family:'Cinzel',serif;
 
-}
+font-size:52px;
 
-/* ==========================================
-   FOOTER
-========================================== */
-
-footer{
-
-display:flex;
-
-gap:15px;
-
-margin-top:25px;
+color:#bb7b00;
 
 }
 
-.box{
+.productTitle h4{
 
-flex:1;
+font-family:'Cinzel',serif;
 
-background:#fff;
+font-size:46px;
 
-padding:18px;
+color:#222;
 
-text-align:center;
+line-height:48px;
 
-border-radius:16px;
+}
 
-font-weight:700;
+/* Item Code */
+
+.code{
+
+margin-top:40px;
+
+}
+
+.code span{
 
 font-size:18px;
 
-outline:none;
+font-weight:700;
 
-border:2px solid #d4af37;
+color:#444;
 
-box-shadow:
+display:block;
 
-0 10px 22px rgba(0,0,0,.08);
-
-transition:.3s;
+margin-bottom:12px;
 
 }
 
-.box:hover{
+.codeBox{
 
-transform:translateY(-4px);
+display:inline-block;
 
-}
+padding:12px 28px;
 
-.box:last-child{
+border-radius:10px;
 
-background:
+font-size:42px;
 
-linear-gradient(
-135deg,
-#ff9933,
-#138808);
+font-weight:800;
 
 color:white;
 
-}
+background:linear-gradient(135deg,#b57800,#f0c34d);
 
-/* ==========================================
-   MOBILE
-========================================== */
+box-shadow:0 8px 18px rgba(0,0,0,.15);
 
-@media(max-width:900px){
-
-.page{
-
-width:100%;
-
-height:auto;
-
-}
-
-.content{
-
-flex-direction:column;
-
-}
-
-.details{
-
-width:100%;
-
-}
-
-.preview{
-
-min-height:420px;
-
-}
-
-.heading h1{
-
-font-size:30px;
-
-}
-
-.heading h2{
-
-font-size:28px;
-
-}
-
-footer{
-
-flex-direction:column;
-
-}
-
-.toolbar{
-
-width:95%;
-
-overflow:auto;
-
-justify-content:flex-start;
-
-}
 }
