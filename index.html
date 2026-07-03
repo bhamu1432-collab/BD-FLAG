@@ -1,132 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Catalogue Editor</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Premium Catalogue Editor</title>
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Libraries -->
+<!-- Premium Fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+
+<link rel="stylesheet"
+
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- Export -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 
 <body>
 
+<!-- Floating Toolbar -->
+
 <div class="toolbar">
 
-<input type="file" id="imageUpload" accept="image/*" hidden>
-<button onclick="document.getElementById('imageUpload').click()">
-Change Product Image
+<button onclick="imageUpload.click()">
+
+<i class="fa-solid fa-image"></i>
+
+Product
+
 </button>
 
-<input type="file" id="bgUpload" accept="image/*" hidden>
-<button onclick="document.getElementById('bgUpload').click()">
-Change Background
+<button onclick="logoUpload.click()">
+
+<i class="fa-solid fa-crown"></i>
+
+Logo
+
 </button>
 
-<input type="file" id="logoUpload" accept="image/*" hidden>
-<button onclick="document.getElementById('logoUpload').click()">
-Change Logo
+<button onclick="bgUpload.click()">
+
+<i class="fa-solid fa-palette"></i>
+
+Background
+
 </button>
 
 <button id="downloadPNG">
-Download PNG
+
+<i class="fa-solid fa-download"></i>
+
+PNG
+
 </button>
 
 <button id="downloadPDF">
-Download PDF
+
+<i class="fa-solid fa-file-pdf"></i>
+
+PDF
+
 </button>
 
+<input type="file" id="imageUpload" hidden>
+
+<input type="file" id="logoUpload" hidden>
+
+<input type="file" id="bgUpload" hidden>
+
 </div>
+
+<!-- A4 -->
 
 <div id="page" class="page">
 
-<div class="goldBorder">
+<div class="border">
 
-<!-- HEADER -->
+<header>
 
-<div class="header">
+<div class="logo">
 
-<div class="logoBox">
-<img id="logo" src="assets/logo.png" alt="Logo">
+<img id="logo"
+
+src="assets/logo.png">
+
 </div>
 
-<div class="title">
+<div class="heading">
 
-<h1 contenteditable="true">
+<h1 contenteditable>
+
 BHAGWAN DECORATION
+
 </h1>
 
-<h2 contenteditable="true">
-TIRANGA BUNTY LADY
+<h2 contenteditable>
+
+Tiranga Bunty Lady
+
 </h2>
 
 </div>
 
+<div class="badge"
+
+contenteditable>
+
+Premium
+
 </div>
 
-<!-- BODY -->
+</header>
 
-<div class="body">
+<section class="content">
 
-<div class="left">
+<div class="details">
 
-<p contenteditable="true">
+<div class="card"
+
+contenteditable>
+
 Item Code : 1406
-</p>
-
-<p contenteditable="true">
-Packing : 10 × 10
-</p>
-
-<p contenteditable="true">
-Length : 4 Meter
-</p>
-
-<p contenteditable="true">
-Quality : Polyester
-</p>
-
-<p contenteditable="true">
-Made In India
-</p>
 
 </div>
 
-<div class="right">
+<div class="card"
 
-<div id="dropZone">
+contenteditable>
+
+Packing : 10 × 10
+
+</div>
+
+<div class="card"
+
+contenteditable>
+
+Length : 4 Meter
+
+</div>
+
+<div class="card"
+
+contenteditable>
+
+Quality : Polyester
+
+</div>
+
+<div class="card"
+
+contenteditable>
+
+Made In India 🇮🇳
+
+</div>
+
+</div>
+
+<div class="preview"
+
+id="dropZone">
 
 <img id="productImage"
-src="assets/product.png"
-alt="Product">
+
+src="assets/product.png">
 
 </div>
 
-</div>
+</section>
 
-</div>
+<footer>
 
-<!-- FOOTER -->
+<div class="box"
 
-<div class="footer">
+contenteditable>
 
-<div class="box" contenteditable="true">
 50 Packet = 1 Bag
+
 </div>
 
-<div class="box" contenteditable="true">
+<div class="box"
+
+contenteditable>
+
 5 Bag = 1 Carton
+
 </div>
 
-<div class="box" contenteditable="true">
+<div class="box"
+
+contenteditable>
+
 Price Category : A
-</div>
 
 </div>
+
+</footer>
 
 </div>
 
@@ -135,4 +220,5 @@ Price Category : A
 <script src="script.js"></script>
 
 </body>
+
 </html>
