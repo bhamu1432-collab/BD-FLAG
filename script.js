@@ -1,25 +1,131 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Page load par components ko smooth transition dene ke liye js effect
-    const leftContent = document.querySelector('.content-left');
-    const rightContent = document.querySelector('.content-right');
-    
-    // Initial invisible state
-    leftContent.style.opacity = 0;
-    leftContent.style.transform = "translateX(-20px)";
-    leftContent.style.transition = "all 0.8s ease-in-out";
-    
-    rightContent.style.opacity = 0;
-    rightContent.style.transform = "translateX(20px)";
-    rightContent.style.transition = "all 0.8s ease-in-out";
+/* ===========================
+   ELEMENTS
+=========================== */
 
-    // Triggering entry animation
-    setTimeout(() => {
-        leftContent.style.opacity = 1;
-        leftContent.style.transform = "translateX(0)";
-    }, 200);
+const page = document.getElementById("page");
 
-    setTimeout(() => {
-        rightContent.style.opacity = 1;
-        rightContent.style.transform = "translateX(0)";
-    }, 400);
+const productImage = document.getElementById("productImage");
+const logo = document.getElementById("logo");
+
+const imageUpload = document.getElementById("imageUpload");
+const bgUpload = document.getElementById("bgUpload");
+const logoUpload = document.getElementById("logoUpload");
+
+const downloadPNG = document.getElementById("downloadPNG");
+const downloadPDF = document.getElementById("downloadPDF");
+
+const dropZone = document.getElementById("dropZone");
+
+
+/* ===========================
+   PRODUCT IMAGE CHANGE
+=========================== */
+
+imageUpload.addEventListener("change", function () {
+
+const file = this.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+productImage.src = e.target.result;
+
+}
+
+reader.readAsDataURL(file);
+
+});
+
+
+/* ===========================
+   LOGO CHANGE
+=========================== */
+
+logoUpload.addEventListener("change", function () {
+
+const file = this.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+logo.src = e.target.result;
+
+}
+
+reader.readAsDataURL(file);
+
+});
+
+
+/* ===========================
+   BACKGROUND CHANGE
+=========================== */
+
+bgUpload.addEventListener("change", function () {
+
+const file = this.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+page.style.backgroundImage =
+`url(${e.target.result})`;
+
+page.style.backgroundSize = "cover";
+page.style.backgroundPosition = "center";
+
+}
+
+reader.readAsDataURL(file);
+
+});
+
+
+/* ===========================
+   DRAG & DROP IMAGE
+=========================== */
+
+dropZone.addEventListener("dragover",function(e){
+
+e.preventDefault();
+
+dropZone.classList.add("dragover");
+
+});
+
+dropZone.addEventListener("dragleave",function(){
+
+dropZone.classList.remove("dragover");
+
+});
+
+dropZone.addEventListener("drop",function(e){
+
+e.preventDefault();
+
+dropZone.classList.remove("dragover");
+
+const file = e.dataTransfer.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload=function(event){
+
+productImage.src = event.target.result;
+
+}
+
+reader.readAsDataURL(file);
+
 });
