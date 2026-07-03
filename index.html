@@ -1,87 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Midas Touch - New Launch</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Impact&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Catalogue Editor</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
+
 <body>
 
-    <div class="poster-container">
-        
-        <div class="top-ribbon"></div>
+<div class="toolbar">
 
-        <div class="content-left">
-            <div class="logo-area">
-                <span class="mg-logo">MG</span>
-                <p class="brand-name">MIDAS TOUCH</p>
-                <div class="bar-code-line"></div>
-            </div>
+<input type="file" id="imageUpload" accept="image/*" hidden>
+<button onclick="document.getElementById('imageUpload').click()">
+Change Product Image
+</button>
 
-            <h2 class="midas-title">MIDAS TOUCH</h2>
-            <h1 class="main-heading">NEW LAUNCH</h1>
-            
-            <div class="independence-badge">
-                FOR INDEPENDENCE DAY
-            </div>
+<input type="file" id="bgUpload" accept="image/*" hidden>
+<button onclick="document.getElementById('bgUpload').click()">
+Change Background
+</button>
 
-            <div class="date-section">
-                <span class="date-num">15</span>
-                <span class="date-month">AUG</span>
-            </div>
-            
-            <div class="skyline-graphic">
-                <div class="monument-icon">🏛️</div>
-                <div class="monument-icon">🕌</div>
-            </div>
+<input type="file" id="logoUpload" accept="image/*" hidden>
+<button onclick="document.getElementById('logoUpload').click()">
+Change Logo
+</button>
 
-            <hr class="divider-line">
+<button id="downloadPNG">
+Download PNG
+</button>
 
-            <div class="product-details">
-                <h3 class="tri-color-title">— TRI COLOR —</h3>
-                
-                <div class="item-row">
-                    <span class="color-dot orange-dot"></span>
-                    <span class="item-qty">4 PC</span>
-                    <span class="item-name">ORANGE</span>
-                </div>
-                <div class="item-row">
-                    <span class="color-dot white-dot"></span>
-                    <span class="item-qty">4 PC</span>
-                    <span class="item-name">WHITE</span>
-                </div>
-                <div class="item-row">
-                    <span class="color-dot green-dot"></span>
-                    <span class="item-qty">4 PC</span>
-                    <span class="item-name">GREEN</span>
-                </div>
-            </div>
+<button id="downloadPDF">
+Download PDF
+</button>
 
-            <div class="price-tag-box">
-                <div class="price-label">PRICE</div>
-                <div class="price-value">₹ L3</div>
-            </div>
-        </div>
+</div>
 
-        <div class="content-right">
-            <div class="product-packet">
-                <div class="packet-layer orange-layer"></div>
-                <div class="packet-layer white-layer">
-                    <span class="packet-logo">MG</span>
-                </div>
-                <div class="packet-layer green-layer"></div>
-            </div>
-        </div>
+<div id="page" class="page">
 
-        <div class="footer-banner">
-            <p class="celebrate-text">CELEBRATE FREEDOM</p>
-            <p class="decorate-text">DECORATE WITH PRIDE</p>
-        </div>
+<div class="goldBorder">
 
-    </div>
+<!-- HEADER -->
 
-    <script src="script.js"></script>
+<div class="header">
+
+<div class="logoBox">
+<img id="logo" src="assets/logo.png" alt="Logo">
+</div>
+
+<div class="title">
+
+<h1 contenteditable="true">
+BHAGWAN DECORATION
+</h1>
+
+<h2 contenteditable="true">
+TIRANGA BUNTY LADY
+</h2>
+
+</div>
+
+</div>
+
+<!-- BODY -->
+
+<div class="body">
+
+<div class="left">
+
+<p contenteditable="true">
+Item Code : 1406
+</p>
+
+<p contenteditable="true">
+Packing : 10 × 10
+</p>
+
+<p contenteditable="true">
+Length : 4 Meter
+</p>
+
+<p contenteditable="true">
+Quality : Polyester
+</p>
+
+<p contenteditable="true">
+Made In India
+</p>
+
+</div>
+
+<div class="right">
+
+<div id="dropZone">
+
+<img id="productImage"
+src="assets/product.png"
+alt="Product">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div class="box" contenteditable="true">
+50 Packet = 1 Bag
+</div>
+
+<div class="box" contenteditable="true">
+5 Bag = 1 Carton
+</div>
+
+<div class="box" contenteditable="true">
+Price Category : A
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
