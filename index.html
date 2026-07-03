@@ -1,90 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Bhagwan Decoration Catalogue</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 210mm;
+            height: 297mm;
+            overflow: hidden;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fffDF6;
+            color: #333;
+            padding: 10mm 12mm;
+            border: 4mm solid #BFA15F;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+        /* Top Tricolor Banner */
+        .top-flag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6mm;
+            background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
+        }
 
-<title>Bhagwan Decoration Catalogue</title>
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-top: 1mm;
+            margin-bottom: 4mm;
+        }
+        .logo-box {
+            width: 13mm;
+            height: 13mm;
+            border: 1px solid #BFA15F;
+            border-radius: 50%;
+            margin: 0 auto 1.5mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-text {
+            font-size: 18pt;
+            font-family: 'Times New Roman', serif;
+            color: #BFA15F;
+            font-weight: bold;
+        }
+        .brand-title {
+            font-size: 22pt;
+            font-weight: bold;
+            color: #E66A00;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+        .brand-subtitle {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #007A3E;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .tagline {
+            font-size: 7.5pt;
+            font-weight: bold;
+            color: #555;
+            margin-top: 1mm;
+            letter-spacing: 1px;
+        }
 
-<link rel="stylesheet" href="style.css">
+        .divider-line {
+            width: 100%;
+            height: 1px;
+            background-color: #E2D9C5;
+            margin: 3.5mm 0;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        /* Content Sections */
+        .product-container {
+            display: flex;
+            width: 100%;
+            margin-bottom: 1.5mm;
+        }
+        .info-side {
+            width: 58%;
+            padding-right: 4mm;
+        }
+        .visual-side {
+            width: 42%;
+            border-left: 1px dashed #C4B9A3;
+            padding-left: 4mm;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
+        /* Product Typography */
+        .p-orange {
+            font-size: 17pt;
+            font-weight: bold;
+            color: #E66A00;
+            line-height: 1.1;
+        }
+        .p-green {
+            font-size: 17pt;
+            font-weight: bold;
+            color: #007A3E;
+            line-height: 1.1;
+            margin-bottom: 2mm;
+        }
+        .item-code {
+            background-color: #D46A00;
+            color: white;
+            font-size: 8.5pt;
+            font-weight: bold;
+            padding: 1mm 4mm;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 2.5mm;
+        }
+
+        /* Specs List */
+        .spec-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+            margin-bottom: 3mm;
+        }
+        .spec-item {
+            display: flex;
+            align-items: center;
+        }
+        .spec-icon-circle {
+            width: 6mm;
+            height: 6mm;
+            border: 1px solid #BFA15F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8.5pt;
+            color: #BFA15F;
+            font-weight: bold;
+            margin-right: 2.5mm;
+            flex-shrink: 0;
+        }
+        .spec-title {
+            font-size: 8.5pt;
+            font-weight: bold;
+            color: #111;
+            line-height: 1.1;
+        }
+        .spec-sub {
+            font-size: 7.5pt;
+            color: #666;
+            line-height: 1;
+        }
+
+        /* Price Tag Box */
+        .price-box {
+            background: linear-gradient(to right, #004D26, #007A3E);
+            border: 1px solid #BFA15F;
+            border-radius: 4px;
+            padding: 1.5mm 3.5mm;
+            display: inline-flex;
+            align-items: center;
+            color: white;
+        }
+        .price-val {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+        .price-unit {
+            font-size: 7.5pt;
+            margin-left: 2mm;
+        }
+
+        /* Visual Blocks */
+        .product-img-box {
+            width: 100%;
+            height: 40mm;
+            background-color: #FAF6EE;
+            border: 1px dashed #BFA15F;
+            border-radius: 4px;
+            margin-bottom: 2mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 8.5pt;
+        }
+        .circle-zoom {
+            width: 13mm;
+            height: 13mm;
+            border-radius: 50%;
+            border: 1px dashed #BFA15F;
+            margin-bottom: 1.5mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7.5pt;
+            color: #888;
+        }
+        .motto-box {
+            font-size: 7.5pt;
+            font-weight: bold;
+            line-height: 1.2;
+            color: #333;
+        }
+        .motto-box span {
+            color: #E66A00;
+        }
+
+        /* Footer Wrapper */
+        .footer-wrapper {
+            margin-top: auto; 
+            width: 100%;
+        }
+        .contact-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 8.5pt;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 2mm;
+        }
+        .bottom-banner {
+            background-color: #004D26;
+            color: white;
+            width: 100%;
+            padding: 2.5mm;
+            text-align: center;
+            font-size: 9pt;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="page">
+<div class="top-flag"></div>
 
-<header>
-
-<div class="shop">
-
-<h1 id="shopName">
-BHAGWAN DECORATION
-</h1>
-
-<p>
-Premium Independence Day Collection
-</p>
-
+<div class="header">
+    <div class="logo-box"><div class="logo-text">B</div></div>
+    <div class="brand-title">BHAGWAN</div>
+    <div class="brand-subtitle">DECORATION</div>
+    <div class="tagline">— DECORATE WITH PRIDE, CELEBRATE WITH JOY —</div>
 </div>
 
-<div class="logo">
+<div class="product-container">
+    <div class="info-side">
+        <div class="p-orange">TIRANGA</div>
+        <div class="p-green">BUNTY LADY</div>
+        <div class="item-code">ITEM CODE: BD-004</div>
+        
+        <div class="spec-list">
+            <div class="spec-item">
+                <div class="spec-icon-circle">↔</div>
+                <div><div class="spec-title">5 FEET</div><div class="spec-sub">LONG</div></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">📦</div>
+                <div><div class="spec-title">PACK OF 5</div><div class="spec-sub">PACKING</div></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">✦</div>
+                <div><div class="spec-title">PREMIUM QUALITY</div><div class="spec-sub">PREMIUM FINISH</div></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">🇮🇳</div>
+                <div><div class="spec-title">TRICOLOR DECORATION</div><div class="spec-sub">PERFECT FOR ALL OCCASIONS</div></div>
+            </div>
+        </div>
 
-<img src="assets/logo.png">
-
+        <div class="price-box">
+            <span class="price-val">₹1,250</span><span class="price-unit">PER PACK</span>
+        </div>
+    </div>
+    <div class="visual-side">
+        <div class="product-img-box">[ Garland Image ]</div>
+        <div class="circle-zoom">[ Zoom ]</div>
+        <div class="motto-box">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
+    </div>
 </div>
 
-</header>
+<div class="divider-line"></div>
 
-<div class="title">
+<div class="product-container">
+    <div class="info-side">
+        <div class="p-orange">TRICOLOR</div>
+        <div class="p-green">FLOWER HANGING BALL</div>
+        <div class="item-code">ITEM CODE: BD-009</div>
+        
+        <div class="spec-list">
+            <div class="spec-item">
+                <div class="spec-icon-circle">↔</div>
+                <div><div class="spec-title">10 INCH</div><div class="spec-sub">DIAMETER</div></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">📦</div>
+                <div><div class="spec-title">PACK OF 2</div><div class="spec-sub">PACKING</div></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">✦</div>
+                <div><div class="spec-title">PREMIUM QUALITY</div><div class="spec-sub">PREMIUM FINISH</div></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">🇮🇳</div>
+                <div><div class="spec-title">TRICOLOR DECORATION</div><div class="spec-sub">PERFECT FOR ALL OCCASIONS</div></div>
+            </div>
+        </div>
 
-INDEPENDENCE DAY SPECIAL COLLECTION
-
+        <div class="price-box">
+            <span class="price-val">₹980</span><span class="price-unit">PER PACK</span>
+        </div>
+    </div>
+    <div class="visual-side">
+        <div class="product-img-box">[ Hanging Ball Image ]</div>
+        <div class="circle-zoom">[ Zoom ]</div>
+        <div class="motto-box">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
+    </div>
 </div>
 
-<div id="catalogue">
-
+<div class="footer-wrapper">
+    <div class="contact-row">
+        <span>📞 +91 98765 43210</span>
+        <span>🌐 www.bhagwandecoration.com</span>
+        <span>📍 Chandni Chowk, Delhi</span>
+    </div>
+    <div class="bottom-banner">
+        PREMIUM QUALITY &nbsp;★&nbsp; PERFECT FINISH &nbsp;★&nbsp; MADE IN INDIA
+    </div>
 </div>
-
-<div class="buttons">
-
-<button onclick="window.print()">
-
-🖨 Print Catalogue
-
-</button>
-
-</div>
-
-<footer>
-
-<div>
-
-Bhagwan Decoration
-
-</div>
-
-<div>
-
-📞 +91 9876543210
-
-</div>
-
-<div>
-
-Made In India 🇮🇳
-
-</div>
-
-</footer>
-
-</div>
-
-<script src="script.js"></script>
 
 </body>
+</html>
+ottom-banner">
+        PREMIUM QUALITY &nbsp;★&nbsp; PERFECT FINISH &nbsp;★&nbsp; MADE IN INDIA
+    </div>
+</div>
 
+</body>
+</html>
+</html>
+<div style="display:table-cell; vertical-align:middle; font-size:8pt; color:#888;">[ Zoom ]</div></div>
+            <div class="motto-box">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
+        </td>
+    </tr>
+</table>
+
+<div class="footer-container">
+    <table class="contact-table">
+        <tr>
+            <td style="text-align: left; width: 33.33%;">📞 +91 98765 43210</td>
+            <td style="text-align: center; width: 33.33%;">🌐 www.bhagwandecoration.com</td>
+            <td style="text-align: right; width: 33.33%;">📍 Chandni Chowk, Delhi</td>
+        </tr>
+    </table>
+    <div class="bottom-banner">
+        PREMIUM QUALITY &nbsp;★&nbsp; PERFECT FINISH &nbsp;★&nbsp; MADE IN INDIA
+    </div>
+</div>
+
+</body>
+</html>
+ class="specs-text"><h4>PREMIUM QUALITY</h4><p>PREMIUM FINISH</p></div>
+                </li>
+                <li class="specs-item">
+                    <div class="icon-box flag-icon">🇮🇳</div>
+                    <div class="specs-text"><h4>TRICOLOR DECORATION</h4><p>PERFECT FOR ALL OCCASIONS</p></div>
+                </li>
+            </ul>
+
+            <div class="price-badge-container">
+                <span class="currency-symbol">₹</span>
+                <span class="price-amount">980</span>
+                <span class="price-unit">PER PACK</span>
+            </div>
+        </div>
+
+        <div class="product-visual-side">
+            <div class="main-product-img-box">[ Hanging Ball Image Placeholder ]</div>
+            <div class="circle-preview-box">[ Zoom ]</div>
+            <div class="motto-text">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION<br>& PURITY</div>
+        </div>
+    </div>
+
+    <div class="footer-contacts">
+        <div>📞 +91 98765 43210</div>
+        <div>🌐 www.bhagwandecoration.com</div>
+        <div>📍 Chandni Chowk, Delhi - 110006</div>
+    </div>
+
+    <div class="footer-bottom-ribbon">
+        <span>PREMIUM QUALITY</span>
+        <span>★</span>
+        <span>PERFECT FINISH</span>
+        <span>★</span>
+        <span>MADE IN INDIA</span>
+    </div>
+</div>
+
+</body>
 </html>
