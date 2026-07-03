@@ -1,86 +1,187 @@
-/* ==========================
-   GLOBAL
-========================== */
+/* ===========================
+BHAGWAN DECORATION
+Premium Catalogue CSS
+=========================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#ececec;
-    font-family:'Poppins',sans-serif;
-    padding:30px;
+
+font-family:'Poppins',sans-serif;
+
+background:#ececec;
+
+padding:25px;
+
 }
 
 .page{
-    width:210mm;
-    min-height:297mm;
-    background:#fff;
-    margin:auto;
-    padding:18mm;
-    border:10px solid #0b7b3b;
-    position:relative;
-    overflow:hidden;
+
+width:210mm;
+
+min-height:297mm;
+
+background:white;
+
+margin:auto;
+
+padding:18mm;
+
+position:relative;
+
+overflow:hidden;
+
+border:8px solid #138808;
+
+box-shadow:0 10px 35px rgba(0,0,0,.15);
+
 }
 
-/* Decorative Border */
-
 .page::before{
-    content:'';
-    position:absolute;
-    inset:8px;
-    border:3px solid #ff9933;
-    pointer-events:none;
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:12px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#FF9933 33%,
+
+white 33%,
+
+white 66%,
+
+#138808 66%
+
+);
+
 }
 
 .page::after{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:12px;
-    background:linear-gradient(
-    to right,
-    #ff9933 33%,
-    white 33%,
-    white 66%,
-    #138808 66%);
+
+content:"";
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:12px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#138808 33%,
+
+white 33%,
+
+white 66%,
+
+#FF9933 66%
+
+);
+
 }
 
-/* ==========================
-HEADER
-========================== */
+/* HEADER */
 
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
 }
 
-.logo h1{
-    font-family:'Cinzel',serif;
-    font-size:42px;
-    color:#e86d00;
-    letter-spacing:2px;
+.shop h1{
+
+font-size:44px;
+
+color:#ff7b00;
+
+font-weight:700;
+
 }
 
-.logo h2{
-    font-size:16px;
-    color:#138808;
-    letter-spacing:8px;
+.shop p{
+
+font-size:15px;
+
+color:#666;
+
+margin-top:5px;
+
 }
 
-.flag{
-    width:110px;
+.logo img{
+
+width:90px;
+
 }
 
-/* ==========================
-PRODUCT CARD
-========================== */
+/* TITLE */
+
+.title{
+
+margin:20px 0;
+
+background:#138808;
+
+color:white;
+
+padding:12px;
+
+text-align:center;
+
+font-size:22px;
+
+font-weight:600;
+
+border-radius:8px;
+
+letter-spacing:1px;
+
+}
+
+/* CATALOG */
+
+#catalogue{
+
+display:grid;
+
+grid-template-columns:1fr;
+
+gap:25px;
+
+}
+
+/* PRODUCT */
 
 .product{
 
@@ -90,27 +191,25 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:28px;
+border:2px solid #138808;
 
-border:3px solid #138808;
-
-border-radius:18px;
+border-radius:15px;
 
 overflow:hidden;
 
 background:white;
 
-box-shadow:0 12px 25px rgba(0,0,0,.08);
+box-shadow:0 10px 20px rgba(0,0,0,.08);
 
 transition:.35s;
+
+page-break-inside:avoid;
 
 }
 
 .product:hover{
 
 transform:translateY(-5px);
-
-box-shadow:0 18px 40px rgba(0,0,0,.18);
 
 }
 
@@ -134,147 +233,151 @@ align-items:center;
 
 padding:15px;
 
+background:#fafafa;
+
 }
 
 .right img{
 
+max-width:230px;
+
 width:100%;
 
-max-width:260px;
-
-transition:.4s;
-
 }
 
-.product:hover img{
-
-transform:scale(1.05);
-
-}
-
-/* ==========================
-TITLE
-========================== */
-
-.left h3{
-
-font-size:26px;
-
-color:#ff7a00;
-
-font-weight:700;
-
-}
-
-.left h4{
-
-font-size:20px;
-
-margin-top:6px;
-
-color:#0f5d2f;
-
-font-weight:600;
-
-}
-
-/* ==========================
-CODE
-========================== */
-
-.code{
+.badge{
 
 display:inline-block;
-
-margin:14px 0;
-
-padding:8px 18px;
 
 background:#138808;
 
 color:white;
 
-border-radius:40px;
+padding:6px 16px;
 
-font-size:14px;
+border-radius:30px;
+
+font-size:12px;
+
+margin-bottom:10px;
+
+}
+
+.left h3{
+
+font-size:25px;
+
+color:#ff7b00;
+
+margin-bottom:10px;
+
+}
+
+.code{
+
+display:inline-block;
+
+padding:6px 15px;
+
+background:#eeeeee;
+
+border-radius:30px;
+
+margin-bottom:15px;
 
 font-weight:600;
 
 }
 
-/* ==========================
-FEATURE LIST
-========================== */
+.left ul{
 
-ul{
-
-margin-top:8px;
-
-padding-left:22px;
+margin-left:18px;
 
 }
 
-li{
+.left li{
 
-margin-bottom:10px;
+margin-bottom:8px;
 
 font-size:15px;
 
-color:#444;
-
 }
-
-/* ==========================
-PRICE
-========================== */
 
 .price{
 
-margin-top:20px;
+margin-top:18px;
 
 display:inline-block;
 
-padding:12px 28px;
-
-background:#ff9933;
+background:#ff7b00;
 
 color:white;
 
+padding:12px 25px;
+
 font-size:30px;
 
-font-weight:700;
+font-weight:bold;
 
-border-radius:10px;
-
-box-shadow:0 8px 18px rgba(255,153,51,.35);
+border-radius:8px;
 
 }
 
-/* ==========================
-FOOTER
-========================== */
+/* BUTTONS */
+
+.buttons{
+
+text-align:center;
+
+margin-top:25px;
+
+}
+
+.buttons button{
+
+padding:14px 35px;
+
+background:#138808;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+font-size:17px;
+
+cursor:pointer;
+
+}
+
+.buttons button:hover{
+
+background:#ff7b00;
+
+}
+
+/* FOOTER */
 
 footer{
 
-margin-top:20px;
+margin-top:25px;
 
 padding-top:18px;
 
 border-top:2px dashed #138808;
 
-text-align:center;
+display:flex;
 
-font-size:15px;
+justify-content:space-between;
 
-font-weight:600;
+font-size:14px;
 
-color:#444;
+color:#555;
 
 }
 
-/* ==========================
-PRINT
-========================== */
+/* PRINT */
 
 @media print{
 
@@ -286,13 +389,19 @@ padding:0;
 
 }
 
-.page{
+.buttons{
 
-margin:0;
+display:none;
+
+}
+
+.page{
 
 border:none;
 
 box-shadow:none;
+
+margin:0;
 
 width:210mm;
 
@@ -300,222 +409,161 @@ min-height:297mm;
 
 }
 
+.product:nth-child(2n){
+
+page-break-after:always;
+
 }
 
-/* =====================================
-   PREMIUM BACKGROUND
-===================================== */
+}/* ===============================
+   PREMIUM GOLD BORDER
+================================ */
 
 .page{
-    background:
-        radial-gradient(circle at top right,#fff5e8 0%,#ffffff 45%),
-        linear-gradient(180deg,#ffffff,#fdfdfd);
+    background:#fff;
+    border:6px solid #138808;
+    outline:4px solid #ff9933;
+    outline-offset:-12px;
 }
 
-/* Top Ribbon */
+/* ===============================
+   ASHOK CHAKRA WATERMARK
+================================ */
 
-.ribbon-top{
+.page::before{
+    content:"☸";
     position:absolute;
-    top:12px;
-    left:0;
-    width:100%;
-    height:12px;
-    background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%);
+    right:-40px;
+    bottom:-30px;
+    font-size:250px;
+    color:rgba(0,70,160,.05);
+    z-index:0;
 }
 
-/* Bottom Ribbon */
-
-.ribbon-bottom{
-    position:absolute;
-    bottom:12px;
-    left:0;
-    width:100%;
-    height:12px;
-    background:linear-gradient(90deg,#138808 33%,#fff 33%,#fff 66%,#FF9933 66%);
-}
-
-/* =====================================
-ASHOK CHAKRA WATERMARK
-===================================== */
-
-.page::after{
-
-content:"☸";
-
-position:absolute;
-
-right:-25px;
-
-bottom:-25px;
-
-font-size:240px;
-
-color:rgba(0,70,160,.05);
-
-font-weight:bold;
-
-z-index:0;
-
-}
-
-/* =====================================
-PRODUCT IMAGE
-===================================== */
+/* ===============================
+   PRODUCT IMAGE
+================================ */
 
 .right{
-
-background:#fafafa;
-
-border-left:2px dashed #138808;
-
+    position:relative;
 }
 
 .right img{
-
-max-width:250px;
-
-filter:drop-shadow(0 12px 18px rgba(0,0,0,.18));
-
+    transition:.4s;
+    filter:drop-shadow(0 10px 18px rgba(0,0,0,.2));
 }
 
-/* =====================================
-FEATURE BOX
-===================================== */
-
-ul{
-
-background:#fffdf8;
-
-border-left:5px solid #FF9933;
-
-padding:15px 18px;
-
-border-radius:10px;
-
+.product:hover img{
+    transform:scale(1.08);
 }
 
-/* =====================================
-PRICE BOX
-===================================== */
+/* ===============================
+   PREMIUM STICKER
+================================ */
+
+.sticker{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#e53935;
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    padding:6px 14px;
+    border-radius:20px;
+}
+
+/* ===============================
+   GLASS EFFECT
+================================ */
+
+.product{
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.95);
+}
+
+/* ===============================
+   PRICE DESIGN
+================================ */
 
 .price{
-
-background:linear-gradient(135deg,#ff9933,#ff6a00);
-
-font-size:34px;
-
-padding:14px 35px;
-
-letter-spacing:1px;
-
+    background:linear-gradient(135deg,#ff9933,#ff6b00);
+    box-shadow:0 8px 18px rgba(255,120,0,.35);
 }
 
-/* =====================================
-SHOP NAME
-===================================== */
+/* ===============================
+   FEATURE BOX
+================================ */
 
-.logo h1{
-
-text-shadow:
-
-0 3px 6px rgba(0,0,0,.15);
-
+.left ul{
+    margin-top:12px;
+    background:#fffdf8;
+    padding:15px;
+    border-left:5px solid #ff9933;
+    border-radius:10px;
 }
 
-.logo h2{
+/* ===============================
+   SHOP NAME
+================================ */
 
-font-weight:600;
-
+.shop h1{
+    text-shadow:0 4px 8px rgba(0,0,0,.15);
 }
 
-/* =====================================
-DECORATIVE CORNERS
-===================================== */
-
-.corner{
-
-position:absolute;
-
-width:70px;
-
-height:70px;
-
-border:6px solid #FF9933;
-
-}
-
-.corner1{
-
-top:15px;
-
-left:15px;
-
-border-right:none;
-
-border-bottom:none;
-
-}
-
-.corner2{
-
-top:15px;
-
-right:15px;
-
-border-left:none;
-
-border-bottom:none;
-
-}
-
-.corner3{
-
-bottom:15px;
-
-left:15px;
-
-border-right:none;
-
-border-top:none;
-
-}
-
-.corner4{
-
-bottom:15px;
-
-right:15px;
-
-border-left:none;
-
-border-top:none;
-
-}
-
-/* =====================================
-HOVER EFFECT
-===================================== */
+/* ===============================
+   PRODUCT HOVER
+================================ */
 
 .product:hover{
-
-border-color:#ff9933;
-
+    border-color:#ff9933;
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
 }
 
-.product:hover .price{
+/* ===============================
+   FOOTER
+================================ */
 
-transform:scale(1.05);
-
+footer{
+    font-weight:600;
 }
 
-/* =====================================
-PRINT
-===================================== */
+/* ===============================
+   MOBILE
+================================ */
 
-@page{
+@media(max-width:768px){
 
-size:A4 portrait;
+.page{
+    width:100%;
+    padding:20px;
+}
 
-margin:0;
+.product{
+    flex-direction:column;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+.shop h1{
+    font-size:30px;
+}
+
+.title{
+    font-size:18px;
+}
+
+.price{
+    font-size:24px;
+}
+
+footer{
+    flex-direction:column;
+    gap:8px;
+    text-align:center;
+}
 
 }
