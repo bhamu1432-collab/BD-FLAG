@@ -1,257 +1,254 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-body {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+body{
+    background:#e8e8e8;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-/* Main Poster Container */
-.poster-container {
-    width: 100%;
-    max-width: 800px;
-    background: #fffef9 url('https://www.transparenttextures.com/patterns/soft-wallpaper.png'); /* Light textured background */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 40px;
-    gap: 20px;
+/* ==========================
+   TOOLBAR
+========================== */
+
+.toolbar{
+    width:210mm;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
 }
 
-/* Top Decorative Indian Flag Wave effect */
-.top-ribbon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    background: linear-gradient(to right, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #128807 66%);
+.toolbar button{
+    background:#ff9800;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:14px;
+    transition:.25s;
 }
 
-/* Brand Logo Styling */
-.logo-area {
-    margin-bottom: 20px;
-}
-.mg-logo {
-    font-family: 'Impact', sans-serif;
-    font-size: 32px;
-    color: #cc1818;
-    letter-spacing: -2px;
-}
-.brand-name {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: #333;
-}
-.bar-code-line {
-    width: 90px;
-    height: 3px;
-    background: repeating-linear-gradient(90deg, #cc1818, #cc1818 2px, transparent 2px, transparent 4px);
-    margin-top: 2px;
+.toolbar button:hover{
+    background:#e67e00;
 }
 
-/* Headings */
-.midas-title {
-    color: #cc1818;
-    font-family: 'Impact', sans-serif;
-    font-size: 36px;
-    line-height: 1;
-    letter-spacing: 1px;
-}
-.main-heading {
-    color: #0d2c6b;
-    font-family: 'Impact', sans-serif;
-    font-size: 58px;
-    line-height: 0.9;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+/* ==========================
+   PAGE
+========================== */
+
+.page{
+    width:210mm;
+    min-height:297mm;
+    background:#ffffff;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(0,0,0,.2);
 }
 
-/* Independence Day Green Badge */
-.independence-badge {
-    background-color: #0b6623;
-    color: white;
-    font-weight: 800;
-    display: inline-block;
-    padding: 6px 15px;
-    transform: skewX(-10deg);
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
+/* Background Image */
+
+.page::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("assets/background.png") center center;
+    background-size:cover;
+    opacity:.18;
+    z-index:0;
 }
 
-/* Date Section */
-.date-section {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-}
-.date-num {
-    font-size: 72px;
-    font-weight: 800;
-    color: #ff9933;
-    line-height: 0.8;
-}
-.date-month {
-    font-size: 28px;
-    font-weight: 800;
-    color: #0b6623;
+.goldBorder{
+    position:absolute;
+    inset:10mm;
+    border:5px solid #c89b2c;
+    padding:18px;
+    z-index:1;
+    background:rgba(255,255,255,.90);
 }
 
-/* Skyline representation */
-.skyline-graphic {
-    display: flex;
-    gap: 15px;
-    margin: 10px 0;
-    opacity: 0.4;
-    font-size: 24px;
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:20px;
 }
 
-.divider-line {
-    border: none;
-    height: 1px;
-    background: #ddd;
-    margin: 20px 0;
+.logoBox{
+    width:90px;
+    height:90px;
+    border:3px solid #d4af37;
+    border-radius:8px;
+    overflow:hidden;
+    background:#fff;
 }
 
-/* Product Info Table/Rows */
-.tri-color-title {
-    color: #0b6623;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-}
-.item-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    font-size: 18px;
-}
-.color-dot {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    margin-right: 15px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-}
-.orange-dot { background: #ff9933; }
-.white-dot { background: #ffffff; border: 1px solid #ccc; }
-.green-dot { background: #128807; }
-
-.item-qty {
-    font-weight: 800;
-    width: 50px;
-    color: #555;
-}
-.item-name {
-    font-weight: 600;
-    color: #222;
-    letter-spacing: 1px;
+.logoBox img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
-/* Price Box */
-.price-tag-box {
-    background-color: #072257;
-    color: white;
-    border-radius: 12px;
-    display: inline-block;
-    padding: 8px 25px;
-    margin-top: 25px;
-    border: 3px solid #ff9933;
-}
-.price-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-align: center;
-}
-.price-value {
-    font-size: 38px;
-    font-weight: 800;
-    line-height: 1;
+.title{
+    flex:1;
+    text-align:center;
 }
 
-/* Right Side - Product Visuals */
-.content-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.title h1{
+    font-size:34px;
+    color:#b00000;
+    font-weight:bold;
+    outline:none;
 }
 
-/* Simulated Shiny Packet styling */
-.product-packet {
-    width: 85%;
-    height: 90%;
-    border: 2px solid rgba(255,255,255,0.8);
-    border-radius: 8px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.1) 100%);
+.title h2{
+    font-size:22px;
+    color:#ff7a00;
+    margin-top:6px;
+    outline:none;
 }
-.packet-layer {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.9;
-}
-.orange-layer { background: #ff9933; }
-.white-layer { background: #ffffff; position: relative; }
-.green-layer { background: #128807; }
+/* ==========================
+   BODY
+========================== */
 
-.packet-logo {
-    font-family: 'Impact', sans-serif;
-    font-size: 40px;
-    color: #cc1818;
-    opacity: 0.8;
+.body{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-top:20px;
+    gap:20px;
 }
 
-/* Footer elements */
-.footer-banner {
-    grid-column: span 2;
-    text-align: right;
-    margin-top: 20px;
-    border-top: 2px dashed #ff9933;
-    padding-top: 10px;
-}
-.celebrate-text {
-    color: #ff9933;
-    font-weight: 800;
-    font-size: 14px;
-}
-.decorate-text {
-    color: #128807;
-    font-weight: 800;
-    font-size: 16px;
+.left{
+    width:38%;
 }
 
-/* Responsive adjustment for Mobile screens */
-@media (max-width: 650px) {
-    .poster-container {
-        grid-template-columns: 1fr;
-        padding: 20px;
-    }
-    .content-right {
-        height: 350px;
-    }
-    .footer-banner {
-        grid-column: span 1;
-        text-align: center;
-    }
+.left p{
+    font-size:18px;
+    margin-bottom:14px;
+    padding:10px;
+    border:2px solid #d4af37;
+    border-radius:6px;
+    background:#fffdf7;
+    outline:none;
+}
+
+.left p:focus{
+    border-color:#ff9800;
+}
+
+/* ==========================
+   PRODUCT IMAGE
+========================== */
+
+.right{
+    width:58%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#dropZone{
+    width:100%;
+    min-height:520px;
+    border:3px dashed #c89b2c;
+    border-radius:10px;
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+}
+
+#dropZone.dragover{
+    background:#fff8e1;
+    border-color:#ff9800;
+}
+
+#productImage{
+    max-width:95%;
+    max-height:500px;
+    object-fit:contain;
+    cursor:move;
+    user-select:none;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer{
+    margin-top:25px;
+    display:flex;
+    gap:12px;
+}
+
+.footer .box{
+    flex:1;
+    padding:15px;
+    border:2px solid #d4af37;
+    border-radius:8px;
+    background:#fff;
+    text-align:center;
+    font-weight:bold;
+    font-size:18px;
+    outline:none;
+}
+
+.footer .box:focus{
+    border-color:#ff9800;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:900px){
+
+.page{
+    width:100%;
+    min-height:auto;
+}
+
+.goldBorder{
+    inset:10px;
+}
+
+.body{
+    flex-direction:column;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+#dropZone{
+    min-height:350px;
+}
+
+.footer{
+    flex-direction:column;
+}
+
+.toolbar{
+    width:100%;
+}
 }
