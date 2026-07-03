@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhagwan Decoration Catalogue</title>
+    <title>Editable Bhagwan Decoration Catalogue</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,83 +11,48 @@
 <div class="top-flag"></div>
 
 <div class="header">
-    <div class="logo-box"><div class="logo-text">B</div></div>
-    <div class="brand-title">BHAGWAN</div>
-    <div class="brand-subtitle">DECORATION</div>
-    <div class="tagline">— DECORATE WITH PRIDE, CELEBRATE WITH JOY —</div>
+    <div class="logo-box"><div class="logo-text" contenteditable="true">B</div></div>
+    <div class="brand-title" contenteditable="true">BHAGWAN</div>
+    <div class="brand-subtitle" contenteditable="true">DECORATION</div>
+    <div class="tagline" contenteditable="true">— DECORATE WITH PRIDE, CELEBRATE WITH JOY —</div>
 </div>
 
 <div class="product-container">
     <div class="info-side">
-        <div class="p-orange">TIRANGA</div>
-        <div class="p-green">BUNTY LADY</div>
-        <div class="item-code">ITEM CODE: BD-004</div>
+        <div class="p-orange" contenteditable="true">TIRANGA</div>
+        <div class="p-green" contenteditable="true">BUNTY LADY</div>
+        <div class="item-code" contenteditable="true">ITEM CODE: BD-004</div>
         
         <div class="spec-list">
             <div class="spec-item">
                 <div class="spec-icon-circle">↔</div>
-                <div><div class="spec-title">5 FEET</div><div class="spec-sub">LONG</div></div>
+                <div><span class="spec-title" contenteditable="true">5 FEET</span> <span class="spec-sub" contenteditable="true">LONG</span></div>
             </div>
             <div class="spec-item">
                 <div class="spec-icon-circle">📦</div>
-                <div><div class="spec-title">PACK OF 5</div><div class="spec-sub">PACKING</div></div>
+                <div><span class="spec-title" contenteditable="true">PACK OF 5</span> <span class="spec-sub" contenteditable="true">PACKING</span></div>
             </div>
             <div class="spec-item">
                 <div class="spec-icon-circle">✦</div>
-                <div><div class="spec-title">PREMIUM QUALITY</div><div class="spec-sub">PREMIUM FINISH</div></div>
+                <div><span class="spec-title" contenteditable="true">PREMIUM QUALITY</span> <span class="spec-sub" contenteditable="true">PREMIUM FINISH</span></div>
             </div>
             <div class="spec-item">
                 <div class="spec-icon-circle">🇮🇳</div>
-                <div><div class="spec-title">TRICOLOR DECORATION</div><div class="spec-sub">PERFECT FOR ALL OCCASIONS</div></div>
+                <div><span class="spec-title" contenteditable="true">TRICOLOR DECORATION</span> <span class="spec-sub" contenteditable="true">PERFECT FOR ALL OCCASIONS</span></div>
             </div>
         </div>
 
         <div class="price-box">
-            <span class="price-val">₹1,250</span><span class="price-unit">PER PACK</span>
+            <span class="price-val" contenteditable="true">₹1,250</span><span class="price-unit" contenteditable="true">PER PACK</span>
         </div>
     </div>
     <div class="visual-side">
-        <div class="product-img-box">[ Garland Image ]</div>
-        <div class="circle-zoom">[ Zoom ]</div>
-        <div class="motto-box">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
-    </div>
-</div>
-
-<div class="divider-line"></div>
-
-<div class="product-container">
-    <div class="info-side">
-        <div class="p-orange">TRICOLOR</div>
-        <div class="p-green">FLOWER HANGING BALL</div>
-        <div class="item-code">ITEM CODE: BD-009</div>
-        
-        <div class="spec-list">
-            <div class="spec-item">
-                <div class="spec-icon-circle">↔</div>
-                <div><div class="spec-title">10 INCH</div><div class="spec-sub">DIAMETER</div></div>
-            </div>
-            <div class="spec-item">
-                <div class="spec-icon-circle">📦</div>
-                <div><div class="spec-title">PACK OF 2</div><div class="spec-sub">PACKING</div></div>
-            </div>
-            <div class="spec-item">
-                <div class="spec-icon-circle">✦</div>
-                <div><div class="spec-title">PREMIUM QUALITY</div><div class="spec-sub">PREMIUM FINISH</div></div>
-            </div>
-            <div class="spec-item">
-                <div class="spec-icon-circle">🇮🇳</div>
-                <div><div class="spec-title">TRICOLOR DECORATION</div><div class="spec-sub">PERFECT FOR ALL OCCASIONS</div></div>
-            </div>
+        <div class="product-img-box" data-product="1">
+            <span class="upload-text">Drag & Drop Image Here <br>or Click to Upload</span>
+            <input type="file" accept="image/*" class="file-input" style="display: none;">
         </div>
-
-        <div class="price-box">
-            <span class="price-val">₹980</span><span class="price-unit">PER PACK</span>
-        </div>
-    </div>
-    <div class="visual-side">
-        <div class="product-img-box">[ Hanging Ball Image ]</div>
-        <div class="circle-zoom">[ Zoom ]</div>
-        <div class="motto-box">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
+        <div class="circle-zoom" contenteditable="true">[ Zoom ]</div>
+        <div class="motto-box" contenteditable="true">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
     </div>
 </div>
 
@@ -95,47 +60,91 @@
 
 <div class="product-container">
     <div class="info-side">
-        <div class="p-orange">TRICOLOR</div>
-        <div class="p-green">HANGING WHEEL</div>
-        <div class="item-code">ITEM CODE: BD-012</div>
+        <div class="p-orange" contenteditable="true">TRICOLOR</div>
+        <div class="p-green" contenteditable="true">FLOWER HANGING BALL</div>
+        <div class="item-code" contenteditable="true">ITEM CODE: BD-009</div>
         
         <div class="spec-list">
             <div class="spec-item">
                 <div class="spec-icon-circle">↔</div>
-                <div><div class="spec-title">12 INCH</div><div class="spec-sub">DIAMETER</div></div>
+                <div><span class="spec-title" contenteditable="true">10 INCH</span> <span class="spec-sub" contenteditable="true">DIAMETER</span></div>
             </div>
             <div class="spec-item">
                 <div class="spec-icon-circle">📦</div>
-                <div><div class="spec-title">PACK OF 4</div><div class="spec-sub">PACKING</div></div>
+                <div><span class="spec-title" contenteditable="true">PACK OF 2</span> <span class="spec-sub" contenteditable="true">PACKING</span></div>
             </div>
             <div class="spec-item">
                 <div class="spec-icon-circle">✦</div>
-                <div><div class="spec-title">PREMIUM QUALITY</div><div class="spec-sub">PREMIUM FINISH</div></div>
+                <div><span class="spec-title" contenteditable="true">PREMIUM QUALITY</span> <span class="spec-sub" contenteditable="true">PREMIUM FINISH</span></div>
             </div>
             <div class="spec-item">
                 <div class="spec-icon-circle">🇮🇳</div>
-                <div><div class="spec-title">TRICOLOR DECORATION</div><div class="spec-sub">PERFECT FOR ALL OCCASIONS</div></div>
+                <div><span class="spec-title" contenteditable="true">TRICOLOR DECORATION</span> <span class="spec-sub" contenteditable="true">PERFECT FOR ALL OCCASIONS</span></div>
             </div>
         </div>
 
         <div class="price-box">
-            <span class="price-val">₹1,150</span><span class="price-unit">PER PACK</span>
+            <span class="price-val" contenteditable="true">₹980</span><span class="price-unit" contenteditable="true">PER PACK</span>
         </div>
     </div>
     <div class="visual-side">
-        <div class="product-img-box">[ Hanging Wheel Image ]</div>
-        <div class="circle-zoom">[ Zoom ]</div>
-        <div class="motto-box">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
+        <div class="product-img-box" data-product="2">
+            <span class="upload-text">Drag & Drop Image Here <br>or Click to Upload</span>
+            <input type="file" accept="image/*" class="file-input" style="display: none;">
+        </div>
+        <div class="circle-zoom" contenteditable="true">[ Zoom ]</div>
+        <div class="motto-box" contenteditable="true">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
+    </div>
+</div>
+
+<div class="divider-line"></div>
+
+<div class="product-container">
+    <div class="info-side">
+        <div class="p-orange" contenteditable="true">TRICOLOR</div>
+        <div class="p-green" contenteditable="true">HANGING WHEEL</div>
+        <div class="item-code" contenteditable="true">ITEM CODE: BD-012</div>
+        
+        <div class="spec-list">
+            <div class="spec-item">
+                <div class="spec-icon-circle">↔</div>
+                <div><span class="spec-title" contenteditable="true">12 INCH</span> <span class="spec-sub" contenteditable="true">DIAMETER</span></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">📦</div>
+                <div><span class="spec-title" contenteditable="true">PACK OF 4</span> <span class="spec-sub" contenteditable="true">PACKING</span></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">✦</div>
+                <div><span class="spec-title" contenteditable="true">PREMIUM QUALITY</span> <span class="spec-sub" contenteditable="true">PREMIUM FINISH</span></div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon-circle">🇮🇳</div>
+                <div><span class="spec-title" contenteditable="true">TRICOLOR DECORATION</span> <span class="spec-sub" contenteditable="true">PERFECT FOR ALL OCCASIONS</span></div>
+            </div>
+        </div>
+
+        <div class="price-box">
+            <span class="price-val" contenteditable="true">₹1,150</span><span class="price-unit" contenteditable="true">PER PACK</span>
+        </div>
+    </div>
+    <div class="visual-side">
+        <div class="product-img-box" data-product="3">
+            <span class="upload-text">Drag & Drop Image Here <br>or Click to Upload</span>
+            <input type="file" accept="image/*" class="file-input" style="display: none;">
+        </div>
+        <div class="circle-zoom" contenteditable="true">[ Zoom ]</div>
+        <div class="motto-box" contenteditable="true">DECORATE WITH<br><span>PRIDE</span><br>PERFECTION & PURITY</div>
     </div>
 </div>
 
 <div class="footer-wrapper">
     <div class="contact-row">
-        <span>📞 +91 98765 43210</span>
-        <span>🌐 www.bhagwandecoration.com</span>
-        <span>📍 Chandni Chowk, Delhi</span>
+        <span contenteditable="true">📞 +91 98765 43210</span>
+        <span contenteditable="true">🌐 www.bhagwandecoration.com</span>
+        <span contenteditable="true">📍 Chandni Chowk, Delhi</span>
     </div>
-    <div class="bottom-banner">
+    <div class="bottom-banner" contenteditable="true">
         PREMIUM QUALITY &nbsp;★&nbsp; PERFECT FINISH &nbsp;★&nbsp; MADE IN INDIA
     </div>
 </div>
@@ -143,4 +152,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
