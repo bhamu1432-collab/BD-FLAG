@@ -1,490 +1,195 @@
-/* ==========================
-   RESET
-========================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#d7d7d7;
-    padding:25px;
+background:#ececec;
+display:flex;
+justify-content:center;
+padding:20px;
+font-family:Arial,Helvetica,sans-serif;
 }
-
-.toolbar{
-    width:210mm;
-    margin:auto;
-    margin-bottom:15px;
-    display:flex;
-    justify-content:flex-end;
-    gap:10px;
-}
-
-.toolbar button{
-    padding:10px 18px;
-    border:none;
-    border-radius:8px;
-    background:#c89616;
-    color:#fff;
-    cursor:pointer;
-}
-
-/* ==========================
-   A4 PAGE
-========================== */
 
 .page{
-
-    position:relative;
-
-    width:210mm;
-    height:297mm;
-
-    margin:auto;
-
-    overflow:hidden;
-
-    background:#fff;
-
-    box-shadow:0 0 25px rgba(0,0,0,.25);
-
+width:210mm;
+height:297mm;
+position:relative;
+overflow:hidden;
+background:#fff;
+box-shadow:0 0 15px rgba(0,0,0,.25);
 }
-
-/* ==========================
-   BACKGROUND
-========================== */
 
 .background{
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    z-index:0;
-
+position:absolute;
+inset:0;
+background:url("background.png") center/cover no-repeat;
+z-index:0;
 }
 
-/* ==========================
-   LOGO
-========================== */
-
-#logoImage{
-
-    position:absolute;
-
-    top:28px;
-
-    left:32px;
-
-    width:78px;
-
-    height:78px;
-
-    object-fit:contain;
-
-    z-index:5;
-
+.catalogue{
+position:relative;
+z-index:2;
+display:grid;
+grid-template-columns:38% 62%;
+height:100%;
+padding:28mm 14mm 20mm;
 }
 
-/* ==========================
-   COMPANY
-========================== */
+/* LEFT */
 
-.company{
-
-    position:absolute;
-
-    top:20px;
-
-    left:0;
-
-    width:100%;
-
-    text-align:center;
-
-    z-index:5;
-
+.left{
+display:flex;
+flex-direction:column;
 }
 
-.companyName{
-
-    font-size:64px;
-
-    font-weight:900;
-
-    color:#b88708;
-
-    line-height:1;
-
-    outline:none;
-
+.brand{
+font-size:58px;
+font-weight:900;
+line-height:1;
+color:#b88400;
+text-transform:uppercase;
 }
 
-.companySub{
-
-    margin-top:6px;
-
-    font-size:22px;
-
-    letter-spacing:11px;
-
-    color:#2f2f2f;
-
-    outline:none;
-
+.subtitle{
+margin-top:6px;
+font-size:24px;
+letter-spacing:10px;
+font-weight:400;
+text-align:center;
 }
 
-/* ==========================
-   PRODUCT TITLE
-========================== */
-
-.productTitle{
-
-    position:absolute;
-
-    left:45px;
-
-    top:165px;
-
-    width:330px;
-
-    z-index:5;
-
+.divider{
+width:85%;
+height:2px;
+background:#d8b257;
+margin:18px 0;
 }
 
-.titleGold{
-
-    font-size:48px;
-
-    color:#b88708;
-
-    font-weight:800;
-
-    line-height:1;
-
-    outline:none;
-
+.small{
+width:65%;
 }
 
-.titleBlack{
-
-    margin-top:8px;
-
-    font-size:38px;
-
-    color:#222;
-
-    font-weight:700;
-
-    line-height:1.05;
-
-    outline:none;
-
+.title1{
+font-size:56px;
+font-family:Georgia,serif;
+color:#9b6b00;
+line-height:1.05;
 }
 
-/* ==========================
-   ITEM CODE
-========================== */
+.title2{
+font-size:46px;
+font-family:Georgia,serif;
+color:#222;
+margin-bottom:22px;
+}
+
+.itemTitle{
+font-size:18px;
+font-weight:bold;
+margin-bottom:8px;
+}
 
 .itemCode{
-
-    position:absolute;
-
-    left:45px;
-
-    top:270px;
-
-    width:250px;
-
-    z-index:5;
-
+display:inline-block;
+padding:12px 24px;
+background:#c58a00;
+color:#fff;
+font-size:42px;
+font-weight:bold;
+border-radius:10px;
+margin-bottom:28px;
 }
 
-.itemLabel{
-
-    font-size:15px;
-
-    font-weight:600;
-
-    color:#444;
-
-    margin-bottom:8px;
-
+.features{
+display:flex;
+flex-direction:column;
+gap:18px;
 }
 
-.itemValue{
-
-    width:200px;
-
-    padding:10px 18px;
-
-    background:#b88708;
-
-    color:#fff;
-
-    border-radius:8px;
-
-    font-size:30px;
-
-    font-weight:700;
-
-    text-align:center;
-
-    outline:none;
-
+.feature{
+display:flex;
+gap:16px;
+align-items:flex-start;
+padding-bottom:14px;
+border-bottom:2px dashed #d9c18c;
 }
-
-/* ==========================
-   FEATURES
-========================== */
-
-.featureBox{
-
-    position:absolute;
-
-    left:45px;
-
-    width:330px;
-
-    height:58px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:10px 14px;
-
-    background:#ffffff;
-
-    border:2px solid #d5b04b;
-
-    border-radius:12px;
-
-    box-shadow:0 3px 8px rgba(0,0,0,.08);
-
-    z-index:5;
-
-}
-
-.f1{ top:360px; }
-
-.f2{ top:435px; }
-
-.f3{ top:510px; }
-
-.f4{ top:585px; }
 
 .icon{
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:50%;
-
-    background:#b88708;
-
-    color:#fff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:20px;
-
-    flex-shrink:0;
-
+width:52px;
+height:52px;
+border:2px solid #c89a2d;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
 }
 
-.featureBox div:last-child{
-
-    font-size:18px;
-
-    font-weight:600;
-
-    color:#222;
-
-    outline:none;
-
+.feature h4{
+font-size:28px;
+margin-bottom:4px;
 }
 
-/* ==========================
-   PRODUCT IMAGE
-========================== */
-
-#productImage{
-
-    position:absolute;
-
-    right:35px;
-
-    top:155px;
-
-    width:470px;
-
-    max-height:650px;
-
-    object-fit:contain;
-
-    z-index:4;
-
-    user-select:none;
-
-}
-/* ==========================
-   BOTTOM PACKETS
-========================== */
-
-.packet{
-    position:absolute;
-    bottom:35px;
-    width:150px;
-    height:75px;
-    background:#fff;
-    border:2px solid #c79b2c;
-    border-radius:12px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:5;
+.feature p{
+font-size:18px;
+color:#444;
 }
 
-.packet1{
-    left:45px;
+/* RIGHT */
+
+.right{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-.packet2{
-    left:215px;
+.product{
+max-width:90%;
+max-height:82%;
+object-fit:contain;
+filter:drop-shadow(0 10px 15px rgba(0,0,0,.25));
 }
 
-.packet div{
-    font-size:34px;
-    font-weight:700;
-    color:#b8860b;
-    line-height:1;
-    outline:none;
+#uploadImage{
+position:absolute;
+top:8px;
+right:8px;
+background:#fff;
+padding:8px;
+border-radius:6px;
+font-size:12px;
 }
 
-.packet span{
-    margin-top:4px;
-    font-size:13px;
-    text-align:center;
-    color:#333;
-    outline:none;
+/* Bottom boxes */
+
+.bottom{
+position:absolute;
+left:14mm;
+right:14mm;
+bottom:16mm;
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:12px;
 }
 
-/* ==========================
-   PRICE CATEGORY
-========================== */
-
-.priceCircle{
-
-    position:absolute;
-
-    right:35px;
-
-    bottom:30px;
-
-    width:145px;
-
-    height:145px;
-
-    border-radius:50%;
-
-    border:5px solid #c79b2c;
-
-    background:#fffdf5;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:5;
-
+.box{
+height:95px;
+border:2px solid #d8b257;
+background:rgba(255,255,255,.9);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-weight:bold;
+font-size:20px;
+overflow:hidden;
 }
 
-.priceCircle div{
-
-    font-size:12px;
-
-    color:#666;
-
-    text-align:center;
-
-    outline:none;
-
-}
-
-.priceCircle h1{
-
-    font-size:54px;
-
-    margin-top:6px;
-
-    color:#b8860b;
-
-    line-height:1;
-
-    outline:none;
-
-}
-
-/* ==========================
-   EDITABLE
-========================== */
-
-[contenteditable="true"]{
-    cursor:text;
-    min-width:10px;
-}
-
-[contenteditable="true"]:focus{
-    outline:2px dashed #c79b2c;
-    outline-offset:3px;
-}
-
-/* ==========================
-   PRINT
-========================== */
-
-@page{
-    size:A4 portrait;
-    margin:0;
-}
-
-@media print{
-
-body{
-    margin:0;
-    padding:0;
-    background:#fff;
-}
-
-.toolbar{
-    display:none;
-}
-
-.page{
-    margin:0;
-    box-shadow:none;
-}
-
+[contenteditable]{
+outline:none;
+word-break:break-word;
+overflow-wrap:anywhere;
 }
