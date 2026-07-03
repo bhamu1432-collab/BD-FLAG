@@ -1,212 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Catalogue</title>
+<title>Bhagwan Decoration Catalogue</title>
 
 <link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-
 </head>
 
 <body>
 
-<div class="toolbar">
+<div class="page">
 
-<button id="logoBtn">Logo</button>
-<input type="file" id="logoInput" hidden>
+<div class="background"></div>
 
-<button id="productBtn">Product</button>
-<input type="file" id="productInput" hidden>
+<div class="catalogue">
 
-<button id="downloadBtn">
-Download A4
-</button>
+<!-- LEFT PANEL -->
+<div class="left">
 
-</div>
-
-<div class="page" id="capture">
-
-<!-- Background -->
-
-<img src="background.png" class="background">
-
-<!-- Logo -->
-
-<img src="assets/logo.png"
-id="logoImage">
-
-<!-- Company -->
-
-<div class="company">
-
-<div class="companyName"
-contenteditable="true">
-
+<h1 class="brand" contenteditable="true">
 BHAGWAN
+</h1>
 
-</div>
-
-<div class="companySub"
-contenteditable="true">
-
+<h2 class="subtitle" contenteditable="true">
 DECORATION
+</h2>
 
-</div>
+<div class="divider"></div>
 
-</div>
-
-<!-- Product Title -->
-
-<div class="productTitle">
-
-<div class="titleGold"
-contenteditable="true">
-
+<h3 class="title1" contenteditable="true">
 TIRANGA
+</h3>
 
-</div>
-
-<div class="titleBlack"
-contenteditable="true">
-
+<h3 class="title2" contenteditable="true">
 BUNTY LADY
+</h3>
 
-</div>
+<div class="divider small"></div>
 
-</div>
-
-<!-- Item Code -->
-
-<div class="itemCode">
-
-<div class="itemLabel">
-
+<div class="itemTitle">
 ITEM CODE
-
 </div>
 
-<div class="itemValue"
-contenteditable="true">
-
+<div class="itemCode" contenteditable="true">
 BD-004
+</div>
+
+<div class="features">
+
+<div class="feature">
+
+<div class="icon">↔</div>
+
+<div>
+
+<h4 contenteditable="true">
+5 Feet
+</h4>
+
+<p contenteditable="true">
+LONG
+</p>
 
 </div>
 
 </div>
 
-<!-- Features -->
-
-<div class="featureBox f1">
-
-<div class="icon">📏</div>
-
-<div contenteditable="true">
-
-5 Feet Long
-
-</div>
-
-</div>
-
-<div class="featureBox f2">
+<div class="feature">
 
 <div class="icon">📦</div>
 
-<div contenteditable="true">
+<div>
 
+<h4 contenteditable="true">
 Pack of 5
+</h4>
+
+<p contenteditable="true">
+PACKING
+</p>
 
 </div>
 
 </div>
 
-<div class="featureBox f3">
+<div class="feature">
 
-<div class="icon">⭐</div>
+<div class="icon">✦</div>
 
-<div contenteditable="true">
+<div>
 
+<h4 contenteditable="true">
 Premium Quality
+</h4>
+
+<p contenteditable="true">
+PREMIUM FINISH
+</p>
 
 </div>
 
 </div>
 
-<div class="featureBox f4">
+<div class="feature">
 
 <div class="icon">🇮🇳</div>
 
-<div contenteditable="true">
+<div>
 
-Perfect Decoration
+<h4 contenteditable="true">
+Tricolor Decoration
+</h4>
+
+<p contenteditable="true">
+PERFECT FOR ALL OCCASIONS
+</p>
 
 </div>
 
 </div>
 
-<!-- Product -->
+</div>
+
+</div>
+
+<!-- RIGHT PANEL -->
+
+<div class="right">
 
 <img
+id="productImage"
 src="assets/product.png"
-id="productImage">
+class="product">
 
-<!-- Bottom Left -->
-
-<div class="packet packet1">
-
-<div contenteditable="true">
-
-5
-
-</div>
-
-<span contenteditable="true">
-
-PC PACKET
-
-</span>
-
-</div>
-
-<div class="packet packet2">
-
-<div contenteditable="true">
-
-50
-
-</div>
-
-<span contenteditable="true">
-
-PACKET CARTON
-
-</span>
-
-</div>
-
-<!-- Price -->
-
-<div class="priceCircle">
-
-<div
-contenteditable="true">
-
-PRICE CATEGORY
-
-</div>
-
-<h1
-contenteditable="true">
-
-A1
-
-</h1>
+<input
+type="file"
+id="uploadImage"
+accept="image/*">
 
 </div>
 
@@ -215,5 +147,4 @@ A1
 <script src="script.js"></script>
 
 </body>
-
 </html>
