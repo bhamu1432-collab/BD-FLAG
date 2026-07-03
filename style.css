@@ -1,4 +1,4 @@
-}* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 20px;
 }
 
 .wrapper {
@@ -20,10 +20,10 @@ body {
     align-items: center;
     gap: 20px;
     width: 100%;
-    max-width: 850px;
+    max-width: 780px; /* Width thodi kam ki taaki layout bikhra hua na lage */
 }
 
-/* 1-Click Download Button Styling */
+/* 1-Click Download Button */
 .download-btn {
     background: linear-gradient(135deg, #FF671F 0%, #9A7B36 50%, #046A38 100%);
     color: white;
@@ -42,80 +42,247 @@ body {
     box-shadow: 0 6px 20px rgba(255,255,255,0.2);
 }
 
-.download-btn:active {
-    transform: translateY(1px);
-}
-
 :root {
     --orange: #FF671F;
     --green: #046A38;
     --gold-bg: radial-gradient(circle, #ffffff 0%, #fffbf0 40%, #f7ebd0 100%);
-    --gold-text-dark: #684f1a;
+    --gold-text-dark: #5c4614;
     --gold-accent: #C5A059;
 }
 
+/* Banner Container */
 .banner-container {
     background: var(--gold-bg);
     width: 100%;
     border: 3px solid var(--gold-accent);
     position: relative;
-    padding: 40px;
+    padding: 35px 50px; /* Side padding thodi badhai taaki content center me compact ho jaye */
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     overflow: hidden;
 }
 
-/* Rest of the styles remain exactly the same as previous code */
+/* Editable Highlight */
 [contenteditable="true"]:hover { background: rgba(197, 160, 89, 0.15); outline: 1px dashed var(--gold-accent); cursor: pointer; }
 [contenteditable="true"]:focus { background: rgba(197, 160, 89, 0.2); outline: 2px solid var(--gold-accent); border-radius: 4px; }
-.top-ribbon { position: absolute; top: 0; right: 0; width: 280px; height: 45px; background: linear-gradient(to bottom, var(--orange) 33.3%, #fff 33.3%, #fff 66.6%, var(--green) 66.6%); transform: rotate(25deg) translate(50px, -20px); }
-.brand-header { text-align: left; margin-bottom: 25px; }
-.brand-name { font-family: 'Cinzel', serif; font-size: 3.2rem; color: var(--gold-text-dark); letter-spacing: 3px; line-height: 1; font-weight: 700; }
-.brand-subtext { font-size: 1.1rem; letter-spacing: 8px; color: #4a4a4a; margin-top: 5px; }
-.decorative-line { width: 220px; height: 2px; background: linear-gradient(to right, transparent, var(--gold-accent), transparent); margin-top: 8px; }
-.content-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; margin-bottom: 30px; }
-.product-title { font-family: 'Cinzel', serif; font-size: 2.8rem; font-weight: 700; }
-.product-subtitle { font-family: 'Cinzel', serif; font-size: 2.3rem; font-weight: 600; margin-top: -8px; }
+
+/* Top Ribbon */
+.top-ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 45px;
+    background: linear-gradient(to bottom, var(--orange) 33.3%, #fff 33.3%, #fff 66.6%, var(--green) 66.6%);
+    transform: rotate(25deg) translate(50px, -20px);
+}
+
+/* Header Section */
+.brand-header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: var(--gold-text-dark);
+    letter-spacing: 3px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.brand-subtext {
+    font-size: 1rem;
+    letter-spacing: 8px;
+    color: #555;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.decorative-line {
+    width: 180px;
+    height: 1px;
+    background: var(--gold-accent);
+    margin-top: 8px;
+}
+
+/* Grid Layout - Compacted to fix the empty look */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.10fr 0.90fr; /* Layout ratio balance kiya */
+    gap: 40px; /* Elements ke beech ka gap maintain kiya */
+    margin-bottom: 25px;
+    align-items: start;
+}
+
+.product-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.product-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin-top: -5px;
+    letter-spacing: 0.5px;
+}
+
 .orange-text { color: var(--orange); }
 .green-text { color: var(--green); }
-.item-code-box { margin: 25px 0; }
-.item-code-label { font-size: 0.85rem; font-weight: 700; color: var(--green); display: block; margin-bottom: 5px; }
-.code-badge { display: inline-block; background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%); color: #fff; padding: 8px 40px; font-size: 1.8rem; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+
+.item-code-box { margin: 20px 0; }
+.item-code-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--green);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.code-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+    color: #fff;
+    padding: 6px 35px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Features List Styling */
 .features-list { list-style: none; }
-.features-list li { display: flex; align-items: center; margin-bottom: 20px; }
-.icon-circle { width: 42px; height: 42px; border: 2px solid var(--gold-accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 15px; font-weight: bold; color: var(--gold-text-dark); background: #fff; }
-.features-list li strong { font-size: 1.1rem; display: block; }
-.features-list li p { font-size: 0.75rem; color: #555; text-transform: uppercase; }
+.features-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px; /* Spacing tight ki taaki bhara hua lage */
+}
+
+.icon-circle {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid var(--gold-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    font-weight: bold;
+    color: var(--gold-text-dark);
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.features-list li strong { font-size: 1rem; display: block; color: #111; line-height: 1.2; }
+.features-list li p { font-size: 0.7rem; color: #666; text-transform: uppercase; }
+
 .tricolor-icon { display: flex; flex-direction: column; overflow: hidden; }
 .flag-orange { background: var(--orange); width: 100%; height: 33.3%; }
 .flag-white { background: #fff; width: 100%; height: 33.3%; display:flex; justify-content:center; align-items:center; }
 .flag-green { background: var(--green); width: 100%; height: 33.3%; }
-.ashoka-chakra { width: 6px; height: 6px; border: 1px solid blue; border-radius: 50%; }
-.right-column { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.drop-zone { width: 180px; height: 380px; padding: 10px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 500; font-size: 0.9rem; cursor: pointer; color: var(--gold-text-dark); border: 3px dashed var(--gold-accent); border-radius: 15px; background: rgba(255, 255, 255, 0.5); position: relative; overflow: hidden; transition: all 0.3s ease; }
-.drop-zone--over { border-style: solid; background: rgba(197, 160, 89, 0.2); transform: scale(1.02); }
+.ashoka-chakra { width: 5px; height: 5px; border: 1px solid blue; border-radius: 50%; }
+
+/* Right Column Dropzone & Text Adjustment */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+
+.drop-zone {
+    width: 200px; /* Size thodi badhai taaki space cover ho sake */
+    height: 360px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: #666;
+    border: 2px dashed var(--gold-accent);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.drop-zone--over { border-style: solid; background: rgba(197, 160, 89, 0.15); }
 .drop-zone-input { display: none; }
-.drop-zone-thumb { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; background-size: cover; background-position: center; position: absolute; top: 0; left: 0; }
-.small-text { font-size: 0.75rem; color: #777; margin-top: 5px; }
-.tagline-box { margin-top: 25px; text-align: center; width: 90%; }
-.tagline-sub { font-style: italic; font-size: 0.95rem; }
-.tagline-main { font-weight: 800; font-size: 1.4rem; }
+.drop-zone-thumb { width: 100%; height: 100%; border-radius: 8px; overflow: hidden; background-size: contain; background-repeat: no-repeat; background-position: center; position: absolute; top: 0; left: 0; }
+.small-text { font-size: 0.75rem; color: #999; margin-top: 5px; }
+
+.tagline-box {
+    margin-top: 25px;
+    text-align: center;
+    width: 100%;
+}
+.tagline-sub { font-style: italic; font-size: 0.9rem; color: #555; }
+.tagline-main { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.5px; margin: 2px 0; }
 .tagline-bold { font-weight: 700; display: inline; font-size: 1.1rem; }
-.bottom-grid { display: grid; grid-template-columns: 1fr 1.1fr 0.9fr; gap: 15px; margin-top: 30px; border-top: 1px solid var(--gold-accent); padding-top: 25px; }
-.info-card { border: 2px solid var(--gold-accent); border-radius: 6px; padding: 15px; display: flex; align-items: center; gap: 15px; background: rgba(255, 255, 255, 0.7); }
-.big-number { font-size: 2.5rem; font-weight: 700; color: var(--green); line-height: 1; }
-.unit { font-size: 1.1rem; font-weight: 700; }
-.card-label { font-size: 0.8rem; font-weight: 700; color: #333; }
-.gold-pack { width: 35px; height: 45px; background: linear-gradient(135deg, #BF953F, #FCF6BA); border-radius: 4px; }
+
+/* Bottom Section */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.9fr;
+    gap: 15px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(197, 160, 89, 0.4);
+    padding-top: 20px;
+}
+
+.info-card {
+    border: 1px solid var(--gold-accent);
+    border-radius: 6px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.big-number { font-size: 2.2rem; font-weight: 700; color: var(--green); line-height: 1; }
+.unit { font-size: 1rem; font-weight: 700; color: #111; }
+.card-label { font-size: 0.75rem; font-weight: 700; color: #444; }
+.gold-pack { width: 30px; height: 40px; background: linear-gradient(135deg, #BF953F, #FCF6BA); border-radius: 4px; }
+
 .price-badge-container { display: flex; justify-content: center; align-items: center; }
-.price-badge { background: radial-gradient(circle, #fceebd 0%, #c59f4e 70%, #9a7320 100%); color: #fff; width: 110px; height: 110px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 6px 15px rgba(0,0,0,0.2); border: 2px dashed #fff; }
-.badge-title { font-size: 0.6rem; text-align: center; font-weight: 700; }
-.badge-value { font-size: 2.2rem; font-weight: 800; line-height: 1.1; }
-.stars { font-size: 0.7rem; letter-spacing: 2px; }
-.banner-footer { margin-top: 40px; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--gold-text-dark); }
+.price-badge {
+    background: radial-gradient(circle, #fceebd 0%, #c59f4e 70%, #9a7320 100%);
+    color: #fff;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: 2px dashed #fff;
+}
+
+.badge-title { font-size: 0.55rem; text-align: center; font-weight: 700; }
+.badge-value { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+.stars { font-size: 0.65rem; letter-spacing: 1px; }
+
+.banner-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold-text-dark);
+}
 .star-bullet { color: var(--orange); }
 
 @media(max-width: 768px) {
-    .content-grid { grid-template-columns: 1fr; }
+    .content-grid { grid-template-columns: 1fr; gap: 20px; }
     .bottom-grid { grid-template-columns: 1fr; }
+    .right-column { padding-top: 0; }
 }
-
