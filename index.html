@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Catalogue Maker</title>
+<title>Catalogue</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -18,10 +19,10 @@
 <div class="toolbar">
 
 <button id="logoBtn">Logo</button>
-<input type="file" id="logoInput" hidden accept="image/*">
+<input type="file" id="logoInput" hidden>
 
 <button id="productBtn">Product</button>
-<input type="file" id="productInput" hidden accept="image/*">
+<input type="file" id="productInput" hidden>
 
 <button id="downloadBtn">
 Download A4
@@ -29,183 +30,190 @@ Download A4
 
 </div>
 
-
 <div class="page" id="capture">
 
-<img src="background.png" class="bg">
+<!-- Background -->
 
+<img src="background.png" class="background">
 
-<header>
+<!-- Logo -->
 
-<div class="logo">
+<img src="assets/logo.png"
+id="logoImage">
 
-<img src="assets/logo.png" id="logoImage">
+<!-- Company -->
 
 <div class="company">
 
-<h1 contenteditable="true">
+<div class="companyName"
+contenteditable="true">
+
 BHAGWAN
-</h1>
 
-<h2 contenteditable="true">
+</div>
+
+<div class="companySub"
+contenteditable="true">
+
 DECORATION
-</h2>
 
 </div>
 
 </div>
 
-</header>
+<!-- Product Title -->
 
+<div class="productTitle">
 
-<section class="main">
+<div class="titleGold"
+contenteditable="true">
 
-
-<div class="left">
-
-
-<h3 contenteditable="true" class="gold">
 TIRANGA
-</h3>
 
-<h4 contenteditable="true">
+</div>
+
+<div class="titleBlack"
+contenteditable="true">
+
 BUNTY LADY
-</h4>
 
+</div>
 
-<div class="code">
+</div>
 
-<label>
+<!-- Item Code -->
+
+<div class="itemCode">
+
+<div class="itemLabel">
+
 ITEM CODE
-</label>
 
-<div contenteditable="true"
-class="codeBox">
+</div>
+
+<div class="itemValue"
+contenteditable="true">
 
 BD-004
 
 </div>
 
 </div>
-<!-- FEATURES -->
 
-<div class="features">
+<!-- Features -->
 
-    <div class="feature">
-        <div class="icon">📏</div>
-        <div contenteditable="true" class="text">
-            5 Feet Long
-        </div>
-    </div>
+<div class="featureBox f1">
 
-    <div class="feature">
-        <div class="icon">📦</div>
-        <div contenteditable="true" class="text">
-            Pack of 5
-        </div>
-    </div>
+<div class="icon">📏</div>
 
-    <div class="feature">
-        <div class="icon">⭐</div>
-        <div contenteditable="true" class="text">
-            Premium Quality
-        </div>
-    </div>
+<div contenteditable="true">
 
-    <div class="feature">
-        <div class="icon">🇮🇳</div>
-        <div contenteditable="true" class="text">
-            Perfect Decoration
-        </div>
-    </div>
+5 Feet Long
 
 </div>
 
 </div>
 
-<!-- RIGHT SIDE -->
+<div class="featureBox f2">
 
-<div class="right">
+<div class="icon">📦</div>
 
-    <img src="assets/product.png"
-         id="productImage">
+<div contenteditable="true">
+
+Pack of 5
 
 </div>
 
-</section>
+</div>
 
+<div class="featureBox f3">
 
-<!-- BOTTOM -->
+<div class="icon">⭐</div>
 
-<footer>
+<div contenteditable="true">
 
-<div class="bottomBox">
+Premium Quality
 
-<div class="pack">
+</div>
 
-<div class="number"
-contenteditable="true">
+</div>
+
+<div class="featureBox f4">
+
+<div class="icon">🇮🇳</div>
+
+<div contenteditable="true">
+
+Perfect Decoration
+
+</div>
+
+</div>
+
+<!-- Product -->
+
+<img
+src="assets/product.png"
+id="productImage">
+
+<!-- Bottom Left -->
+
+<div class="packet packet1">
+
+<div contenteditable="true">
 
 5
 
 </div>
 
-<div class="label"
-contenteditable="true">
+<span contenteditable="true">
 
 PC PACKET
 
-</div>
+</span>
 
 </div>
 
+<div class="packet packet2">
 
-<div class="pack">
-
-<div class="number"
-contenteditable="true">
+<div contenteditable="true">
 
 50
 
 </div>
 
-<div class="label"
-contenteditable="true">
+<span contenteditable="true">
 
 PACKET CARTON
 
-</div>
+</span>
 
 </div>
 
-</div>
-
+<!-- Price -->
 
 <div class="priceCircle">
 
 <div
-contenteditable="true"
-class="priceTitle">
+contenteditable="true">
 
 PRICE CATEGORY
 
 </div>
 
-<div
-contenteditable="true"
-class="priceValue">
+<h1
+contenteditable="true">
 
 A1
 
-</div>
+</h1>
 
 </div>
-
-</footer>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
