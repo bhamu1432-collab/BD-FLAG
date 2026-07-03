@@ -1,224 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Premium Catalogue Editor</title>
+<title>Bhagwan Decoration Catalogue</title>
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Premium Fonts -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
-
-<link rel="stylesheet"
-
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<!-- Export -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 </head>
 
 <body>
 
-<!-- Floating Toolbar -->
-
 <div class="toolbar">
 
-<button onclick="imageUpload.click()">
-
-<i class="fa-solid fa-image"></i>
-
-Product
-
+<button id="downloadBtn">
+Download JPG
 </button>
 
-<button onclick="logoUpload.click()">
-
-<i class="fa-solid fa-crown"></i>
-
-Logo
-
+<button id="changeImage">
+Change Image
 </button>
 
-<button onclick="bgUpload.click()">
-
-<i class="fa-solid fa-palette"></i>
-
-Background
-
-</button>
-
-<button id="downloadPNG">
-
-<i class="fa-solid fa-download"></i>
-
-PNG
-
-</button>
-
-<button id="downloadPDF">
-
-<i class="fa-solid fa-file-pdf"></i>
-
-PDF
-
-</button>
-
-<input type="file" id="imageUpload" hidden>
-
-<input type="file" id="logoUpload" hidden>
-
-<input type="file" id="bgUpload" hidden>
+<input
+type="file"
+id="imageInput"
+accept="image/*"
+hidden>
 
 </div>
 
-<!-- A4 -->
 
-<div id="page" class="page">
+<div id="catalogue">
 
-<div class="border">
+<div class="goldBorder"></div>
 
-<header>
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
 
-<div class="logo">
+<!-- Left Side -->
 
-<img id="logo"
+<div class="left">
 
-src="assets/logo.png">
+<div class="brand">
 
-</div>
-
-<div class="heading">
-
-<h1 contenteditable>
-
-BHAGWAN DECORATION
-
+<h1 contenteditable="true">
+BHAGWAN
 </h1>
 
-<h2 contenteditable>
-
-Tiranga Bunty Lady
-
+<h2 contenteditable="true">
+DECORATION
 </h2>
 
 </div>
 
-<div class="badge"
+<div class="productTitle">
 
-contenteditable>
+<h3 contenteditable="true">
+TIRANGA
+</h3>
 
-Premium
-
-</div>
-
-</header>
-
-<section class="content">
-
-<div class="details">
-
-<div class="card"
-
-contenteditable>
-
-Item Code : 1406
+<h4 contenteditable="true">
+BUNTY LADY
+</h4>
 
 </div>
 
-<div class="card"
+<div class="code">
 
-contenteditable>
+<span>
+ITEM CODE
+</span>
 
-Packing : 10 × 10
+<div
+contenteditable="true"
+class="codeBox">
 
-</div>
-
-<div class="card"
-
-contenteditable>
-
-Length : 4 Meter
-
-</div>
-
-<div class="card"
-
-contenteditable>
-
-Quality : Polyester
-
-</div>
-
-<div class="card"
-
-contenteditable>
-
-Made In India 🇮🇳
+BD-004
 
 </div>
 
 </div>
 
-<div class="preview"
+<div class="features">
 
-id="dropZone">
+<div class="feature">
 
-<img id="productImage"
-
-src="assets/product.png">
-
+<div class="icon">
+↔
 </div>
 
-</section>
+<div>
 
-<footer>
+<b contenteditable="true">
+5 Feet
+</b>
 
-<div class="box"
-
-contenteditable>
-
-50 Packet = 1 Bag
-
-</div>
-
-<div class="box"
-
-contenteditable>
-
-5 Bag = 1 Carton
-
-</div>
-
-<div class="box"
-
-contenteditable>
-
-Price Category : A
-
-</div>
-
-</footer>
+<p contenteditable="true">
+LONG
+</p>
 
 </div>
 
 </div>
 
-<script src="script.js"></script>
+<div class="feature">
 
-</body>
+<div class="icon">
+📦
+</div>
 
-</html>
+<div>
+
+<b contenteditable="true">
+Pack of 5
+</b>
+
+<p contenteditable="true">
+PACKING
+</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<div class="icon">
+★
+</div>
+
+<div>
+
+<b contenteditable="true">
+Premium Quality
+</b>
+
+<p contenteditable="true">
+PREMIUM FINISH
+</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<div class="icon">
+🇮🇳
+</div>
+
+<div>
+
+<b contenteditable="true">
+Tricolor Decoration
+</b>
+
+<p contenteditable="true">
+Perfect For All Occasions
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right">
+
+<img
+
+id="productImage"
+
+src="product.png"
+
+alt="product">
+
+<div class="zoomCircle">
+
+<img
+
+id="zoomImage"
+
+src="product.png">
+
+</div>
+
+</div>
