@@ -1,0 +1,56 @@
+[
+  {
+    "id": "BD-001",
+    "name": "TRICOLOR FLOWER BALL",
+    "price": 1250,
+    "size": "10 Inch Diameter",
+    "pack": "Pack of 2",
+    "quality": "Premium Quality",
+    "image": "assets/products/product1.png"
+  },
+  {
+    "id": "BD-002",
+    "name": "TIRANGA BUNTY",
+    "price": 980,
+    "size": "5 Feet Length",
+    "pack": "Pack of 5",
+    "quality": "Premium Quality",
+    "image": "assets/products/product2.png"
+  },
+  {
+    "id": "BD-003",
+    "name": "TRICOLOR FRILL",
+    "price": 650,
+    "size": "10 Meter",
+    "pack": "Pack of 1",
+    "quality": "Premium Quality",
+    "image": "assets/products/product3.png"
+  },
+  {
+    "id": "BD-004",
+    "name": "INDIAN FLAG",
+    "price": 220,
+    "size": "3 x 2 Feet",
+    "pack": "Single",
+    "quality": "High Quality Fabric",
+    "image": "assets/products/product4.png"
+  },
+  {
+    "id": "BD-005",
+    "name": "TRICOLOR BALLOON SET",
+    "price": 299,
+    "size": "100 Pieces",
+    "pack": "Pack of 1",
+    "quality": "Premium Latex",
+    "image": "assets/products/product5.png"
+  },
+  {
+    "id": "BD-006",
+    "name": "PATRIOTIC PAPER FAN",
+    "price": 450,
+    "size": "16 Inch",
+    "pack": "Pack of 3",
+    "quality": "Premium Paper",
+    "image": "assets/products/product6.png"
+  }
+]
