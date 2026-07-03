@@ -301,3 +301,221 @@ min-height:297mm;
 }
 
 }
+
+/* =====================================
+   PREMIUM BACKGROUND
+===================================== */
+
+.page{
+    background:
+        radial-gradient(circle at top right,#fff5e8 0%,#ffffff 45%),
+        linear-gradient(180deg,#ffffff,#fdfdfd);
+}
+
+/* Top Ribbon */
+
+.ribbon-top{
+    position:absolute;
+    top:12px;
+    left:0;
+    width:100%;
+    height:12px;
+    background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%);
+}
+
+/* Bottom Ribbon */
+
+.ribbon-bottom{
+    position:absolute;
+    bottom:12px;
+    left:0;
+    width:100%;
+    height:12px;
+    background:linear-gradient(90deg,#138808 33%,#fff 33%,#fff 66%,#FF9933 66%);
+}
+
+/* =====================================
+ASHOK CHAKRA WATERMARK
+===================================== */
+
+.page::after{
+
+content:"☸";
+
+position:absolute;
+
+right:-25px;
+
+bottom:-25px;
+
+font-size:240px;
+
+color:rgba(0,70,160,.05);
+
+font-weight:bold;
+
+z-index:0;
+
+}
+
+/* =====================================
+PRODUCT IMAGE
+===================================== */
+
+.right{
+
+background:#fafafa;
+
+border-left:2px dashed #138808;
+
+}
+
+.right img{
+
+max-width:250px;
+
+filter:drop-shadow(0 12px 18px rgba(0,0,0,.18));
+
+}
+
+/* =====================================
+FEATURE BOX
+===================================== */
+
+ul{
+
+background:#fffdf8;
+
+border-left:5px solid #FF9933;
+
+padding:15px 18px;
+
+border-radius:10px;
+
+}
+
+/* =====================================
+PRICE BOX
+===================================== */
+
+.price{
+
+background:linear-gradient(135deg,#ff9933,#ff6a00);
+
+font-size:34px;
+
+padding:14px 35px;
+
+letter-spacing:1px;
+
+}
+
+/* =====================================
+SHOP NAME
+===================================== */
+
+.logo h1{
+
+text-shadow:
+
+0 3px 6px rgba(0,0,0,.15);
+
+}
+
+.logo h2{
+
+font-weight:600;
+
+}
+
+/* =====================================
+DECORATIVE CORNERS
+===================================== */
+
+.corner{
+
+position:absolute;
+
+width:70px;
+
+height:70px;
+
+border:6px solid #FF9933;
+
+}
+
+.corner1{
+
+top:15px;
+
+left:15px;
+
+border-right:none;
+
+border-bottom:none;
+
+}
+
+.corner2{
+
+top:15px;
+
+right:15px;
+
+border-left:none;
+
+border-bottom:none;
+
+}
+
+.corner3{
+
+bottom:15px;
+
+left:15px;
+
+border-right:none;
+
+border-top:none;
+
+}
+
+.corner4{
+
+bottom:15px;
+
+right:15px;
+
+border-left:none;
+
+border-top:none;
+
+}
+
+/* =====================================
+HOVER EFFECT
+===================================== */
+
+.product:hover{
+
+border-color:#ff9933;
+
+}
+
+.product:hover .price{
+
+transform:scale(1.05);
+
+}
+
+/* =====================================
+PRINT
+===================================== */
+
+@page{
+
+size:A4 portrait;
+
+margin:0;
+
+}
