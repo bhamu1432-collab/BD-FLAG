@@ -1,288 +1,303 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ==========================
+   GLOBAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+body{
+    background:#ececec;
+    font-family:'Poppins',sans-serif;
+    padding:30px;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 780px; /* Width thodi kam ki taaki layout bikhra hua na lage */
+.page{
+    width:210mm;
+    min-height:297mm;
+    background:#fff;
+    margin:auto;
+    padding:18mm;
+    border:10px solid #0b7b3b;
+    position:relative;
+    overflow:hidden;
 }
 
-/* 1-Click Download Button */
-.download-btn {
-    background: linear-gradient(135deg, #FF671F 0%, #9A7B36 50%, #046A38 100%);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
+/* Decorative Border */
+
+.page::before{
+    content:'';
+    position:absolute;
+    inset:8px;
+    border:3px solid #ff9933;
+    pointer-events:none;
 }
 
-.download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+.page::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:12px;
+    background:linear-gradient(
+    to right,
+    #ff9933 33%,
+    white 33%,
+    white 66%,
+    #138808 66%);
 }
 
-:root {
-    --orange: #FF671F;
-    --green: #046A38;
-    --gold-bg: radial-gradient(circle, #ffffff 0%, #fffbf0 40%, #f7ebd0 100%);
-    --gold-text-dark: #5c4614;
-    --gold-accent: #C5A059;
+/* ==========================
+HEADER
+========================== */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
 }
 
-/* Banner Container */
-.banner-container {
-    background: var(--gold-bg);
-    width: 100%;
-    border: 3px solid var(--gold-accent);
-    position: relative;
-    padding: 35px 50px; /* Side padding thodi badhai taaki content center me compact ho jaye */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    overflow: hidden;
+.logo h1{
+    font-family:'Cinzel',serif;
+    font-size:42px;
+    color:#e86d00;
+    letter-spacing:2px;
 }
 
-/* Editable Highlight */
-[contenteditable="true"]:hover { background: rgba(197, 160, 89, 0.15); outline: 1px dashed var(--gold-accent); cursor: pointer; }
-[contenteditable="true"]:focus { background: rgba(197, 160, 89, 0.2); outline: 2px solid var(--gold-accent); border-radius: 4px; }
-
-/* Top Ribbon */
-.top-ribbon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 280px;
-    height: 45px;
-    background: linear-gradient(to bottom, var(--orange) 33.3%, #fff 33.3%, #fff 66.6%, var(--green) 66.6%);
-    transform: rotate(25deg) translate(50px, -20px);
+.logo h2{
+    font-size:16px;
+    color:#138808;
+    letter-spacing:8px;
 }
 
-/* Header Section */
-.brand-header {
-    text-align: left;
-    margin-bottom: 20px;
+.flag{
+    width:110px;
 }
 
-.brand-name {
-    font-family: 'Cinzel', serif;
-    font-size: 3rem;
-    color: var(--gold-text-dark);
-    letter-spacing: 3px;
-    line-height: 1;
-    font-weight: 700;
+/* ==========================
+PRODUCT CARD
+========================== */
+
+.product{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:28px;
+
+border:3px solid #138808;
+
+border-radius:18px;
+
+overflow:hidden;
+
+background:white;
+
+box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+transition:.35s;
+
 }
 
-.brand-subtext {
-    font-size: 1rem;
-    letter-spacing: 8px;
-    color: #555;
-    margin-top: 5px;
-    text-transform: uppercase;
+.product:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 18px 40px rgba(0,0,0,.18);
+
 }
 
-.decorative-line {
-    width: 180px;
-    height: 1px;
-    background: var(--gold-accent);
-    margin-top: 8px;
+.left{
+
+width:55%;
+
+padding:25px;
+
 }
 
-/* Grid Layout - Compacted to fix the empty look */
-.content-grid {
-    display: grid;
-    grid-template-columns: 1.10fr 0.90fr; /* Layout ratio balance kiya */
-    gap: 40px; /* Elements ke beech ka gap maintain kiya */
-    margin-bottom: 25px;
-    align-items: start;
+.right{
+
+width:45%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:15px;
+
 }
 
-.product-title {
-    font-family: 'Cinzel', serif;
-    font-size: 2.6rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+.right img{
+
+width:100%;
+
+max-width:260px;
+
+transition:.4s;
+
 }
 
-.product-subtitle {
-    font-family: 'Cinzel', serif;
-    font-size: 2.1rem;
-    font-weight: 600;
-    margin-top: -5px;
-    letter-spacing: 0.5px;
+.product:hover img{
+
+transform:scale(1.05);
+
 }
 
-.orange-text { color: var(--orange); }
-.green-text { color: var(--green); }
+/* ==========================
+TITLE
+========================== */
 
-.item-code-box { margin: 20px 0; }
-.item-code-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--green);
-    display: block;
-    margin-bottom: 5px;
+.left h3{
+
+font-size:26px;
+
+color:#ff7a00;
+
+font-weight:700;
+
 }
 
-.code-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
-    color: #fff;
-    padding: 6px 35px;
-    font-size: 1.6rem;
-    font-weight: 700;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+.left h4{
+
+font-size:20px;
+
+margin-top:6px;
+
+color:#0f5d2f;
+
+font-weight:600;
+
 }
 
-/* Features List Styling */
-.features-list { list-style: none; }
-.features-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px; /* Spacing tight ki taaki bhara hua lage */
+/* ==========================
+CODE
+========================== */
+
+.code{
+
+display:inline-block;
+
+margin:14px 0;
+
+padding:8px 18px;
+
+background:#138808;
+
+color:white;
+
+border-radius:40px;
+
+font-size:14px;
+
+font-weight:600;
+
 }
 
-.icon-circle {
-    width: 38px;
-    height: 38px;
-    border: 1.5px solid var(--gold-accent);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-    font-weight: bold;
-    color: var(--gold-text-dark);
-    background: #fff;
-    flex-shrink: 0;
+/* ==========================
+FEATURE LIST
+========================== */
+
+ul{
+
+margin-top:8px;
+
+padding-left:22px;
+
 }
 
-.features-list li strong { font-size: 1rem; display: block; color: #111; line-height: 1.2; }
-.features-list li p { font-size: 0.7rem; color: #666; text-transform: uppercase; }
+li{
 
-.tricolor-icon { display: flex; flex-direction: column; overflow: hidden; }
-.flag-orange { background: var(--orange); width: 100%; height: 33.3%; }
-.flag-white { background: #fff; width: 100%; height: 33.3%; display:flex; justify-content:center; align-items:center; }
-.flag-green { background: var(--green); width: 100%; height: 33.3%; }
-.ashoka-chakra { width: 5px; height: 5px; border: 1px solid blue; border-radius: 50%; }
+margin-bottom:10px;
 
-/* Right Column Dropzone & Text Adjustment */
-.right-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 20px;
+font-size:15px;
+
+color:#444;
+
 }
 
-.drop-zone {
-    width: 200px; /* Size thodi badhai taaki space cover ho sake */
-    height: 360px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: 500;
-    font-size: 0.85rem;
-    cursor: pointer;
-    color: #666;
-    border: 2px dashed var(--gold-accent);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.6);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
+/* ==========================
+PRICE
+========================== */
+
+.price{
+
+margin-top:20px;
+
+display:inline-block;
+
+padding:12px 28px;
+
+background:#ff9933;
+
+color:white;
+
+font-size:30px;
+
+font-weight:700;
+
+border-radius:10px;
+
+box-shadow:0 8px 18px rgba(255,153,51,.35);
+
 }
 
-.drop-zone--over { border-style: solid; background: rgba(197, 160, 89, 0.15); }
-.drop-zone-input { display: none; }
-.drop-zone-thumb { width: 100%; height: 100%; border-radius: 8px; overflow: hidden; background-size: contain; background-repeat: no-repeat; background-position: center; position: absolute; top: 0; left: 0; }
-.small-text { font-size: 0.75rem; color: #999; margin-top: 5px; }
+/* ==========================
+FOOTER
+========================== */
 
-.tagline-box {
-    margin-top: 25px;
-    text-align: center;
-    width: 100%;
-}
-.tagline-sub { font-style: italic; font-size: 0.9rem; color: #555; }
-.tagline-main { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.5px; margin: 2px 0; }
-.tagline-bold { font-weight: 700; display: inline; font-size: 1.1rem; }
+footer{
 
-/* Bottom Section */
-.bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.9fr;
-    gap: 15px;
-    margin-top: 20px;
-    border-top: 1px solid rgba(197, 160, 89, 0.4);
-    padding-top: 20px;
+margin-top:20px;
+
+padding-top:18px;
+
+border-top:2px dashed #138808;
+
+text-align:center;
+
+font-size:15px;
+
+font-weight:600;
+
+color:#444;
+
 }
 
-.info-card {
-    border: 1px solid var(--gold-accent);
-    border-radius: 6px;
-    padding: 12px 15px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.6);
+/* ==========================
+PRINT
+========================== */
+
+@media print{
+
+body{
+
+background:white;
+
+padding:0;
+
 }
 
-.big-number { font-size: 2.2rem; font-weight: 700; color: var(--green); line-height: 1; }
-.unit { font-size: 1rem; font-weight: 700; color: #111; }
-.card-label { font-size: 0.75rem; font-weight: 700; color: #444; }
-.gold-pack { width: 30px; height: 40px; background: linear-gradient(135deg, #BF953F, #FCF6BA); border-radius: 4px; }
+.page{
 
-.price-badge-container { display: flex; justify-content: center; align-items: center; }
-.price-badge {
-    background: radial-gradient(circle, #fceebd 0%, #c59f4e 70%, #9a7320 100%);
-    color: #fff;
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    border: 2px dashed #fff;
+margin:0;
+
+border:none;
+
+box-shadow:none;
+
+width:210mm;
+
+min-height:297mm;
+
 }
 
-.badge-title { font-size: 0.55rem; text-align: center; font-weight: 700; }
-.badge-value { font-size: 2rem; font-weight: 800; line-height: 1.1; }
-.stars { font-size: 0.65rem; letter-spacing: 1px; }
-
-.banner-footer {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--gold-text-dark);
-}
-.star-bullet { color: var(--orange); }
-
-@media(max-width: 768px) {
-    .content-grid { grid-template-columns: 1fr; gap: 20px; }
-    .bottom-grid { grid-template-columns: 1fr; }
-    .right-column { padding-top: 0; }
 }
