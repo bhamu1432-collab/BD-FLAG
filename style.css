@@ -1,195 +1,257 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-background:#ececec;
-display:flex;
-justify-content:center;
-padding:20px;
-font-family:Arial,Helvetica,sans-serif;
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.page{
-width:210mm;
-height:297mm;
-position:relative;
-overflow:hidden;
-background:#fff;
-box-shadow:0 0 15px rgba(0,0,0,.25);
+/* Main Poster Container */
+.poster-container {
+    width: 100%;
+    max-width: 800px;
+    background: #fffef9 url('https://www.transparenttextures.com/patterns/soft-wallpaper.png'); /* Light textured background */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 40px;
+    gap: 20px;
 }
 
-.background{
-position:absolute;
-inset:0;
-background:url("background.png") center/cover no-repeat;
-z-index:0;
+/* Top Decorative Indian Flag Wave effect */
+.top-ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: linear-gradient(to right, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #128807 66%);
 }
 
-.catalogue{
-position:relative;
-z-index:2;
-display:grid;
-grid-template-columns:38% 62%;
-height:100%;
-padding:28mm 14mm 20mm;
+/* Brand Logo Styling */
+.logo-area {
+    margin-bottom: 20px;
+}
+.mg-logo {
+    font-family: 'Impact', sans-serif;
+    font-size: 32px;
+    color: #cc1818;
+    letter-spacing: -2px;
+}
+.brand-name {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #333;
+}
+.bar-code-line {
+    width: 90px;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, #cc1818, #cc1818 2px, transparent 2px, transparent 4px);
+    margin-top: 2px;
 }
 
-/* LEFT */
-
-.left{
-display:flex;
-flex-direction:column;
+/* Headings */
+.midas-title {
+    color: #cc1818;
+    font-family: 'Impact', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+.main-heading {
+    color: #0d2c6b;
+    font-family: 'Impact', sans-serif;
+    font-size: 58px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
-.brand{
-font-size:58px;
-font-weight:900;
-line-height:1;
-color:#b88400;
-text-transform:uppercase;
+/* Independence Day Green Badge */
+.independence-badge {
+    background-color: #0b6623;
+    color: white;
+    font-weight: 800;
+    display: inline-block;
+    padding: 6px 15px;
+    transform: skewX(-10deg);
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
 }
 
-.subtitle{
-margin-top:6px;
-font-size:24px;
-letter-spacing:10px;
-font-weight:400;
-text-align:center;
+/* Date Section */
+.date-section {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+.date-num {
+    font-size: 72px;
+    font-weight: 800;
+    color: #ff9933;
+    line-height: 0.8;
+}
+.date-month {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0b6623;
 }
 
-.divider{
-width:85%;
-height:2px;
-background:#d8b257;
-margin:18px 0;
+/* Skyline representation */
+.skyline-graphic {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+    opacity: 0.4;
+    font-size: 24px;
 }
 
-.small{
-width:65%;
+.divider-line {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
 }
 
-.title1{
-font-size:56px;
-font-family:Georgia,serif;
-color:#9b6b00;
-line-height:1.05;
+/* Product Info Table/Rows */
+.tri-color-title {
+    color: #0b6623;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+.item-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+.color-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+.orange-dot { background: #ff9933; }
+.white-dot { background: #ffffff; border: 1px solid #ccc; }
+.green-dot { background: #128807; }
+
+.item-qty {
+    font-weight: 800;
+    width: 50px;
+    color: #555;
+}
+.item-name {
+    font-weight: 600;
+    color: #222;
+    letter-spacing: 1px;
 }
 
-.title2{
-font-size:46px;
-font-family:Georgia,serif;
-color:#222;
-margin-bottom:22px;
+/* Price Box */
+.price-tag-box {
+    background-color: #072257;
+    color: white;
+    border-radius: 12px;
+    display: inline-block;
+    padding: 8px 25px;
+    margin-top: 25px;
+    border: 3px solid #ff9933;
+}
+.price-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.price-value {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
 }
 
-.itemTitle{
-font-size:18px;
-font-weight:bold;
-margin-bottom:8px;
+/* Right Side - Product Visuals */
+.content-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.itemCode{
-display:inline-block;
-padding:12px 24px;
-background:#c58a00;
-color:#fff;
-font-size:42px;
-font-weight:bold;
-border-radius:10px;
-margin-bottom:28px;
+/* Simulated Shiny Packet styling */
+.product-packet {
+    width: 85%;
+    height: 90%;
+    border: 2px solid rgba(255,255,255,0.8);
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.1) 100%);
+}
+.packet-layer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+.orange-layer { background: #ff9933; }
+.white-layer { background: #ffffff; position: relative; }
+.green-layer { background: #128807; }
+
+.packet-logo {
+    font-family: 'Impact', sans-serif;
+    font-size: 40px;
+    color: #cc1818;
+    opacity: 0.8;
 }
 
-.features{
-display:flex;
-flex-direction:column;
-gap:18px;
+/* Footer elements */
+.footer-banner {
+    grid-column: span 2;
+    text-align: right;
+    margin-top: 20px;
+    border-top: 2px dashed #ff9933;
+    padding-top: 10px;
+}
+.celebrate-text {
+    color: #ff9933;
+    font-weight: 800;
+    font-size: 14px;
+}
+.decorate-text {
+    color: #128807;
+    font-weight: 800;
+    font-size: 16px;
 }
 
-.feature{
-display:flex;
-gap:16px;
-align-items:flex-start;
-padding-bottom:14px;
-border-bottom:2px dashed #d9c18c;
-}
-
-.icon{
-width:52px;
-height:52px;
-border:2px solid #c89a2d;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-}
-
-.feature h4{
-font-size:28px;
-margin-bottom:4px;
-}
-
-.feature p{
-font-size:18px;
-color:#444;
-}
-
-/* RIGHT */
-
-.right{
-position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.product{
-max-width:90%;
-max-height:82%;
-object-fit:contain;
-filter:drop-shadow(0 10px 15px rgba(0,0,0,.25));
-}
-
-#uploadImage{
-position:absolute;
-top:8px;
-right:8px;
-background:#fff;
-padding:8px;
-border-radius:6px;
-font-size:12px;
-}
-
-/* Bottom boxes */
-
-.bottom{
-position:absolute;
-left:14mm;
-right:14mm;
-bottom:16mm;
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:12px;
-}
-
-.box{
-height:95px;
-border:2px solid #d8b257;
-background:rgba(255,255,255,.9);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-font-weight:bold;
-font-size:20px;
-overflow:hidden;
-}
-
-[contenteditable]{
-outline:none;
-word-break:break-word;
-overflow-wrap:anywhere;
+/* Responsive adjustment for Mobile screens */
+@media (max-width: 650px) {
+    .poster-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    .content-right {
+        height: 350px;
+    }
+    .footer-banner {
+        grid-column: span 1;
+        text-align: center;
+    }
 }
