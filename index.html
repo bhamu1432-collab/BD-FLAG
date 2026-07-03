@@ -1,276 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Premium Independence Catalogue</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagwan Decoration - Downloadable Banner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
-
 <body>
 
-<div class="toolbar">
-
-<button id="downloadPNG">
-Download PNG
-</button>
-
-<button id="downloadPDF">
-Download PDF
-</button>
-
-<button onclick="window.print()">
-Print
-</button>
-
-</div>
-
-
-<div id="catalogue">
-
-<div class="top-strip"></div>
-
-<header>
-
-<div class="logo-section">
-
-<div class="logo-drop" id="logoDrop">
-
-<input
-type="file"
-id="logoInput"
-accept="image/*"
-hidden>
-
-<img id="logoPreview">
-
-<div class="drop-text">
-
-Drop Logo
-
-</div>
-
-</div>
-
-</div>
-
-<div class="title">
-
-<h1 contenteditable="true">
-
-BHAGWAN DECORATION
-
-</h1>
-
-<h3 contenteditable="true">
-
-Premium Independence Collection
-
-</h3>
-
-<p contenteditable="true">
-
-Celebrate Freedom With Premium Quality Products
-
-</p>
-
-</div>
-
-</header>
-
-
-
-<section class="hero">
-
-<div class="details">
-
-<div class="code" contenteditable="true">
-
-ITEM CODE : BD-101
-
-</div>
-
-<h2 contenteditable="true">
-
-Premium Product Name
-
-</h2>
-
-<p contenteditable="true">
-
-Write your product description here.
-
-Everything is editable.
-
-</p>
-
-<div class="features">
-
-<div class="feature" contenteditable="true">
-
-Premium Finish
-
-</div>
-
-<div class="feature" contenteditable="true">
-
-Made In India
-
-</div>
-
-<div class="feature" contenteditable="true">
-
-Festival Special
-
-</div>
-
-<div class="feature" contenteditable="true">
-
-Best Selling Product
-
-</div>
-
-</div>
-
-<div class="price">
-
-₹ <span contenteditable="true">499</span>
-
-</div>
-
-</div>
-
-
-
-<div class="image-box">
-
-<div class="product-drop"
-
-id="imageDrop">
-
-<input
-
-type="file"
-
-id="imageInput"
-
-accept="image/*"
-
-hidden>
-
-<img id="productPreview">
-
-<div class="placeholder">
-
-Drag & Drop Product Image
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="info">
-
-<div class="card">
-
-<h4>
-
-Packing
-
-</h4>
-
-<p contenteditable="true">
-
-10 PCS
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h4>
-
-Size
-
-</h4>
-
-<p contenteditable="true">
-
-12 Inch
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h4>
-
-Category
-
-</h4>
-
-<p contenteditable="true">
-
-Decoration
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<div class="contact">
-
-<p contenteditable="true">
-
-📞 +91 9876543210
-
-</p>
-
-<p contenteditable="true">
-
-📍 Your Address Here
-
-</p>
-
-</div>
-
-
-
-<div class="chakra">
-
-</div>
-
-<div class="bottom-strip">
-
-</div>
-
-</div>
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script src="script.js"></script>
-
+    <div class="wrapper">
+        
+        <button id="downloadBtn" class="download-btn">📸 Download Image (1-Click)</button>
+
+        <div class="banner-container" id="banner">
+            <div class="top-ribbon"></div>
+            
+            <div class="content-grid">
+                <div class="left-column">
+                    <header class="brand-header">
+                        <h1 class="brand-name" contenteditable="true">BHAGWAN</h1>
+                        <p class="brand-subtext" contenteditable="true">DECORATION</p>
+                        <div class="decorative-line"></div>
+                    </header>
+
+                    <div class="product-title-area">
+                        <h2 class="product-title orange-text" contenteditable="true">TIRANGA</h2>
+                        <h2 class="product-subtitle green-text" contenteditable="true">BUNTY LADY</h2>
+                    </div>
+
+                    <div class="item-code-box">
+                        <span class="item-code-label" contenteditable="true">ITEM CODE</span>
+                        <div class="code-badge" contenteditable="true">BD-004</div>
+                    </div>
+
+                    <ul class="features-list">
+                        <li>
+                            <div class="icon-circle"><span>↔</span></div>
+                            <div>
+                                <strong contenteditable="true">5 Feet</strong>
+                                <p contenteditable="true">LONG</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-circle"><span>📦</span></div>
+                            <div>
+                                <strong contenteditable="true">Pack of 5</strong>
+                                <p contenteditable="true">PACKING</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-circle"><span>✦</span></div>
+                            <div>
+                                <strong contenteditable="true">Premium Quality</strong>
+                                <p contenteditable="true">PREMIUM FINISH</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-circle tricolor-icon">
+                                <div class="flag-orange"></div>
+                                <div class="flag-white"><div class="ashoka-chakra"></div></div>
+                                <div class="flag-green"></div>
+                            </div>
+                            <div>
+                                <strong contenteditable="true">Tricolor Decoration</strong>
+                                <p contenteditable="true">PERFECT FOR ALL OCCASIONS</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="right-column">
+                    <div class="drop-zone" id="imageDropZone">
+                        <div class="drop-zone-prompt">
+                            <span>Drag & Drop Product Image Here</span>
+                            <p class="small-text">or click to upload</p>
+                        </div>
+                        <input type="file" name="myFile" class="drop-zone-input" id="fileInput" accept="image/*">
+                    </div>
+
+                    <div class="tagline-box">
+                        <p class="tagline-sub" contenteditable="true">Decorate with</p>
+                        <p class="tagline-main orange-text" contenteditable="true">PRIDE</p>
+                        <p class="tagline-bold" contenteditable="true">PERFECTION</p>
+                        <p class="tagline-bold green-text" contenteditable="true">& PURITY</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-grid">
+                <div class="info-card">
+                    <div class="pack-icon gold-pack"></div>
+                    <div>
+                        <span class="big-number" contenteditable="true">5</span> <span class="unit" contenteditable="true">PC</span>
+                        <p class="card-label" contenteditable="true">PACKET</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="pack-icon box-pack">📦</div>
+                    <div>
+                        <span class="big-number" contenteditable="true">50</span>
+                        <p class="card-label" contenteditable="true">PACKET CARTOON</p>
+                    </div>
+                </div>
+
+                <div class="price-badge-container">
+                    <div class="price-badge">
+                        <span class="badge-title" contenteditable="true">PRICE CATEGORY</span>
+                        <span class="badge-value" contenteditable="true">A1</span>
+                        <span class="stars" contenteditable="true">★★★</span>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="banner-footer">
+                <span class="star-bullet">★ ★</span>
+                <span class="footer-text" contenteditable="true">BRIGHTEN EVERY MOMENT WITH BHAGWAN DECORATION</span>
+                <span class="star-bullet">★ ★</span>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
