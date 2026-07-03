@@ -1,208 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue</title>
 
-    <title>Bhagwan Decoration Catalogue</title>
+<link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 </head>
 
 <body>
 
-<div class="page">
+<div class="toolbar">
 
-    <!-- Golden Border -->
-    <div class="border"></div>
+<button id="uploadProduct">Upload Product</button>
 
-    <!-- Top -->
+<input type="file" id="productInput" hidden accept="image/*">
 
-    <header>
+<button id="downloadBtn">Download A4</button>
 
-        <div class="logo">
+</div>
 
-            <h1>BHAGWAN</h1>
+<div class="page" id="capture">
 
-            <h2>DECORATION</h2>
+<!-- Background automatically background.png se aayega -->
 
-        </div>
+<div class="logo">
 
-    </header>
+<input value="BHAGWAN">
 
+<input value="DECORATION">
 
-    <!-- Main -->
+</div>
 
-    <section class="content">
+<div class="content">
 
-        <!-- Left -->
+<div class="left">
 
-        <div class="left">
+<input class="title1" value="TIRANGA">
 
-            <h3>TIRANGA</h3>
+<input class="title2" value="BUNTY LADY">
 
-            <h4>BUNTY LADY</h4>
+<div class="itemcode">
 
-            <div class="line"></div>
+<label>ITEM CODE</label>
 
-            <p class="item-title">
-                ITEM CODE
-            </p>
+<input value="BD-004">
 
-            <div class="item-box">
-                BD-004
-            </div>
+</div>
 
+<div class="feature">
 
-            <!-- Features -->
+<span>📏</span>
 
-            <div class="features">
+<input value="5 Feet">
 
-                <div class="feature">
+</div>
 
-                    <div class="icon">
-                        ↔
-                    </div>
+<div class="feature">
 
-                    <div>
+<span>📦</span>
 
-                        <strong>5 Feet</strong>
+<input value="Pack of 5">
 
-                        <span>LONG</span>
+</div>
 
-                    </div>
+<div class="feature">
 
-                </div>
+<span>⭐</span>
 
-                <div class="feature">
+<input value="Premium Quality">
 
-                    <div class="icon">
-                        📦
-                    </div>
+</div>
 
-                    <div>
+<div class="feature">
 
-                        <strong>Pack of 5</strong>
+<span>🇮🇳</span>
 
-                        <span>PACKING</span>
+<input value="Perfect Decoration">
 
-                    </div>
-                
+</div>
 
-                </div>
+</div>
 
-                <div class="feature">
+<div class="right">
 
-                    <div class="icon">
-                        ★
-                    </div>
+<img src="assets/product.png"
 
-                    <div>
+id="productImage">
 
-                        <strong>Premium Quality</strong>
+</div>
 
-                        <span>PREMIUM FINISH</span>
+</div>
 
-                    </div>
+<div class="price">
 
-                </div>
+<label>PRICE CATEGORY</label>
 
-                <div class="feature">
+<input value="A1">
 
-                    <div class="icon">
-                        🇮🇳
-                    </div>
-
-                    <div>
-
-                        <strong>Tricolor Decoration</strong>
-
-                        <span>PERFECT FOR ALL OCCASIONS</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <!-- Right -->
-
-        <div class="right">
-
-            <div class="product-image">
-
-                <img src="assets/images/product.png"
-                     alt="Product Image">
-
-            </div>
-
-            <div class="zoom-image">
-
-                <img src="assets/images/product-close.png"
-                     alt="Close View">
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Bottom Boxes -->
-
-    <section class="bottom">
-
-        <div class="box">
-
-            <img src="assets/icons/packet.png"
-                 alt="Packet">
-
-            <div>
-
-                <h2>5</h2>
-
-                <p>PC<br>PACKET</p>
-
-            </div>
-
-        </div>
-
-
-        <div class="box">
-
-            <img src="assets/icons/carton.png"
-                 alt="Carton">
-
-            <div>
-
-                <h2>50</h2>
-
-                <p>PACKET<br>CARTOON</p>
-
-            </div>
-
-        </div>
-
-
-        <div class="price-box">
-
-            <div class="badge">
-
-                <span>PRICE CATEGORY</span>
-
-                <h1>A1</h1>
-
-            </div>
-
-        </div>
-
-    </section>
+</div>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
