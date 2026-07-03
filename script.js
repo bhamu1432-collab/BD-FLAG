@@ -1,26 +1,23 @@
-// ==============================
-// Premium Catalogue Script
-// ==============================
+// =========================
+// BHAGWAN CATALOGUE PRO
+// script.js
+// =========================
 
-const productImage = document.getElementById("productImage");
+const product = document.getElementById("product");
 const zoomImage = document.getElementById("zoomImage");
 
 const imageInput = document.getElementById("imageInput");
-const changeImage = document.getElementById("changeImage");
-
-const downloadBtn = document.getElementById("downloadBtn");
-
+const changeBtn = document.getElementById("changeImageBtn");
+const downloadBtn = document.getElementById("download");
 const catalogue = document.getElementById("catalogue");
 
-//========================
-// Change Image
-//========================
+// --------------------------
+// IMAGE CHANGE
+// --------------------------
 
-changeImage.addEventListener("click", () => {
-    imageInput.click();
-});
+changeBtn.onclick = () => imageInput.click();
 
-imageInput.addEventListener("change", function () {
+imageInput.onchange = function () {
 
     const file = this.files[0];
 
@@ -30,7 +27,7 @@ imageInput.addEventListener("change", function () {
 
     reader.onload = function (e) {
 
-        productImage.src = e.target.result;
+        product.src = e.target.result;
         zoomImage.src = e.target.result;
 
         localStorage.setItem("productImage", e.target.result);
@@ -39,84 +36,60 @@ imageInput.addEventListener("change", function () {
 
     reader.readAsDataURL(file);
 
-});
+};
 
-//========================
-// Restore Image
-//========================
+// --------------------------
+// LOAD SAVED IMAGE
+// --------------------------
 
-window.addEventListener("load", () => {
+window.onload = () => {
 
     const img = localStorage.getItem("productImage");
 
     if (img) {
 
-        productImage.src = img;
+        product.src = img;
         zoomImage.src = img;
 
     }
 
-});
+};
 
-//========================
-// Save Editable Text
-//========================
+// --------------------------
+// EDITABLE TEXT SAVE
+// --------------------------
 
-const editable = document.querySelectorAll("[contenteditable='true']");
+document.querySelectorAll("[contenteditable]").forEach((el, i) => {
 
-editable.forEach((item, index) => {
+    const key = "text_" + i;
 
-    const key = "editable_" + index;
+    if (localStorage.getItem(key)) {
 
-    const saved = localStorage.getItem(key);
-
-    if (saved) {
-
-        item.innerHTML = saved;
+        el.innerHTML = localStorage.getItem(key);
 
     }
 
-    item.addEventListener("input", () => {
+    el.addEventListener("input", () => {
 
-        localStorage.setItem(key, item.innerHTML);
+        localStorage.setItem(key, el.innerHTML);
 
     });
 
 });
 
-//========================
-// Undo / Redo
-//========================
+// --------------------------
+// DOWNLOAD JPG
+// --------------------------
 
-document.addEventListener("keydown", function (e) {
-
-    if (e.ctrlKey && e.key === "z") {
-
-        e.preventDefault();
-        document.execCommand("undo");
-
-    }
-
-    if (e.ctrlKey && e.key === "y") {
-
-        e.preventDefault();
-        document.execCommand("redo");
-
-    }
-
-});
-
-//========================
-// Download JPG
-//========================
-
-downloadBtn.addEventListener("click", () => {
+downloadBtn.onclick = () => {
 
     html2canvas(catalogue, {
 
         scale:3,
+
         useCORS:true,
-        backgroundColor:null
+
+        backgroundColor:"#ffffff"
 
     }).then(canvas => {
 
@@ -130,247 +103,92 @@ downloadBtn.addEventListener("click", () => {
 
     });
 
-});
-
-//========================
-// Double Click Image
-//========================
-
-productImage.addEventListener("dblclick", () => {
-
-    imageInput.click();
-
-});
-
-//========================
-// Zoom Sync
-//========================
-
-productImage.onload = () => {
-
-    zoomImage.src = productImage.src;
-
 };
 
-//========================
-// Drag Image
-//========================
+// --------------------------
+// UNDO REDO
+// --------------------------
 
-let isDragging = false;
+document.addEventListener("keydown", function(e){
 
-let startX = 0;
-let startY = 0;
+    if(e.ctrlKey && e.key==="z"){
 
-let posX = 0;
-let posY = 0;
+        e.preventDefault();
 
-productImage.style.position = "relative";
+        document.execCommand("undo");
 
-productImage.addEventListener("mousedown", e => {
+    }
 
-    isDragging = true;
+    if(e.ctrlKey && e.key==="y"){
 
-    startX = e.clientX - posX;
-    startY = e.clientY - posY;
+        e.preventDefault();
 
-});
+        document.execCommand("redo");
 
-document.addEventListener("mousemove", e => {
-
-    if (!isDragging) return;
-
-    posX = e.clientX - startX;
-    posY = e.clientY - startY;
-
-    productImage.style.left = posX + "px";
-    productImage.style.top = posY + "px";
+    }
 
 });
 
-document.addEventListener("mouseup", () => {
+// --------------------------
+// IMAGE DRAG
+// --------------------------
 
-    isDragging = false;
+let dragging = false;
 
-});preview.style.borderColor="#d4af37";
+let startX,startY;
 
-});
+let left = 0;
 
-preview.addEventListener("drop",(e)=>{
+let topPos = 0;
 
-e.preventDefault();
+product.style.position="relative";
 
-preview.style.borderColor="#d4af37";
+product.addEventListener("mousedown",(e)=>{
 
-const file = e.dataTransfer.files[0];
+    dragging=true;
 
-if(!file) return;
+    startX=e.clientX-left;
 
-const reader = new FileReader();
-
-reader.onload=function(ev){
-
-productImage.src=ev.target.result;
-
-}
-
-reader.readAsDataURL(file);
-
-});
-// ===============================
-// DOWNLOAD PNG
-// ===============================
-
-downloadPNG.addEventListener("click", async () => {
-
-const canvas = await html2canvas(page,{
-scale:3,
-useCORS:true,
-backgroundColor:null
-});
-
-const link = document.createElement("a");
-
-link.download="Catalogue.png";
-
-link.href=canvas.toDataURL("image/png");
-
-link.click();
-
-});
-
-
-// ===============================
-// DOWNLOAD PDF
-// ===============================
-
-downloadPDF.addEventListener("click", async()=>{
-
-const canvas = await html2canvas(page,{
-scale:3,
-useCORS:true
-});
-
-const img=canvas.toDataURL("image/png");
-
-const { jsPDF }=window.jspdf;
-
-const pdf=new jsPDF("p","mm","a4");
-
-pdf.addImage(img,"PNG",0,0,210,297);
-
-pdf.save("Catalogue.pdf");
-
-});
-
-
-// ===============================
-// DRAG PRODUCT IMAGE
-// ===============================
-
-let dragging=false;
-
-let startX=0;
-
-let startY=0;
-
-let x=0;
-
-let y=0;
-
-productImage.style.position="absolute";
-
-productImage.style.left="50%";
-
-productImage.style.top="50%";
-
-productImage.style.transform="translate(-50%,-50%)";
-
-productImage.addEventListener("mousedown",(e)=>{
-
-dragging=true;
-
-startX=e.clientX-x;
-
-startY=e.clientY-y;
+    startY=e.clientY-topPos;
 
 });
 
 document.addEventListener("mousemove",(e)=>{
 
-if(!dragging) return;
+    if(!dragging) return;
 
-x=e.clientX-startX;
+    left=e.clientX-startX;
 
-y=e.clientY-startY;
+    topPos=e.clientY-startY;
 
-productImage.style.transform=`translate(${x}px,${y}px)`;
+    product.style.left=left+"px";
+
+    product.style.top=topPos+"px";
 
 });
 
 document.addEventListener("mouseup",()=>{
 
-dragging=false;
+    dragging=false;
 
 });
 
+// --------------------------
+// DOUBLE CLICK CHANGE IMAGE
+// --------------------------
 
-// ===============================
-// MOBILE TOUCH SUPPORT
-// ===============================
+product.ondblclick=()=>{
 
-productImage.addEventListener("touchstart",(e)=>{
+    imageInput.click();
 
-dragging=true;
+};
 
-startX=e.touches[0].clientX-x;
+// --------------------------
+// ZOOM SYNC
+// --------------------------
 
-startY=e.touches[0].clientY-y;
+product.onload=()=>{
 
-});
+    zoomImage.src=product.src;
 
-document.addEventListener("touchmove",(e)=>{
-
-if(!dragging) return;
-
-x=e.touches[0].clientX-startX;
-
-y=e.touches[0].clientY-startY;
-
-productImage.style.transform=`translate(${x}px,${y}px)`;
-
-});
-
-document.addEventListener("touchend",()=>{
-
-dragging=false;
-
-});
-
-
-// ===============================
-// IMAGE ZOOM
-// ===============================
-
-let scale=1;
-
-productImage.addEventListener("wheel",(e)=>{
-
-e.preventDefault();
-
-if(e.deltaY<0){
-
-scale+=0.05;
-
-}else{
-
-scale-=0.05;
-
-}
-
-if(scale<0.2) scale=0.2;
-
-if(scale>4) scale=4;
-
-productImage.style.scale=scale;
-
-});
+};
