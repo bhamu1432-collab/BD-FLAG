@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catalogue</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Catalogue Maker</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,98 +17,195 @@
 
 <div class="toolbar">
 
-<button id="uploadProduct">Upload Product</button>
+<button id="logoBtn">Logo</button>
+<input type="file" id="logoInput" hidden accept="image/*">
 
+<button id="productBtn">Product</button>
 <input type="file" id="productInput" hidden accept="image/*">
 
-<button id="downloadBtn">Download A4</button>
+<button id="downloadBtn">
+Download A4
+</button>
 
 </div>
+
 
 <div class="page" id="capture">
 
-<!-- Background automatically background.png se aayega -->
+<img src="background.png" class="bg">
+
+
+<header>
 
 <div class="logo">
 
-<input value="BHAGWAN">
+<img src="assets/logo.png" id="logoImage">
 
-<input value="DECORATION">
+<div class="company">
+
+<h1 contenteditable="true">
+BHAGWAN
+</h1>
+
+<h2 contenteditable="true">
+DECORATION
+</h2>
 
 </div>
 
-<div class="content">
+</div>
+
+</header>
+
+
+<section class="main">
+
 
 <div class="left">
 
-<input class="title1" value="TIRANGA">
 
-<input class="title2" value="BUNTY LADY">
+<h3 contenteditable="true" class="gold">
+TIRANGA
+</h3>
 
-<div class="itemcode">
+<h4 contenteditable="true">
+BUNTY LADY
+</h4>
 
-<label>ITEM CODE</label>
 
-<input value="BD-004">
+<div class="code">
 
-</div>
+<label>
+ITEM CODE
+</label>
 
-<div class="feature">
+<div contenteditable="true"
+class="codeBox">
 
-<span>📏</span>
-
-<input value="5 Feet">
-
-</div>
-
-<div class="feature">
-
-<span>📦</span>
-
-<input value="Pack of 5">
-
-</div>
-
-<div class="feature">
-
-<span>⭐</span>
-
-<input value="Premium Quality">
-
-</div>
-
-<div class="feature">
-
-<span>🇮🇳</span>
-
-<input value="Perfect Decoration">
+BD-004
 
 </div>
 
 </div>
+<!-- FEATURES -->
+
+<div class="features">
+
+    <div class="feature">
+        <div class="icon">📏</div>
+        <div contenteditable="true" class="text">
+            5 Feet Long
+        </div>
+    </div>
+
+    <div class="feature">
+        <div class="icon">📦</div>
+        <div contenteditable="true" class="text">
+            Pack of 5
+        </div>
+    </div>
+
+    <div class="feature">
+        <div class="icon">⭐</div>
+        <div contenteditable="true" class="text">
+            Premium Quality
+        </div>
+    </div>
+
+    <div class="feature">
+        <div class="icon">🇮🇳</div>
+        <div contenteditable="true" class="text">
+            Perfect Decoration
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE -->
 
 <div class="right">
 
-<img src="assets/product.png"
+    <img src="assets/product.png"
+         id="productImage">
 
-id="productImage">
+</div>
+
+</section>
+
+
+<!-- BOTTOM -->
+
+<footer>
+
+<div class="bottomBox">
+
+<div class="pack">
+
+<div class="number"
+contenteditable="true">
+
+5
+
+</div>
+
+<div class="label"
+contenteditable="true">
+
+PC PACKET
 
 </div>
 
 </div>
 
-<div class="price">
 
-<label>PRICE CATEGORY</label>
+<div class="pack">
 
-<input value="A1">
+<div class="number"
+contenteditable="true">
+
+50
 
 </div>
+
+<div class="label"
+contenteditable="true">
+
+PACKET CARTON
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="priceCircle">
+
+<div
+contenteditable="true"
+class="priceTitle">
+
+PRICE CATEGORY
+
+</div>
+
+<div
+contenteditable="true"
+class="priceValue">
+
+A1
+
+</div>
+
+</div>
+
+</footer>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
