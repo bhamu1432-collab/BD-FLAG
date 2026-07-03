@@ -402,4 +402,128 @@ body{
     margin:0;
 }
 
+
+}
+/* ===========================
+   FINAL POLISH
+=========================== */
+
+[contenteditable="true"]{
+    cursor:text;
+    min-width:20px;
+    display:inline-block;
+}
+
+[contenteditable="true"]:focus{
+    outline:2px dashed #c89b2c;
+    outline-offset:4px;
+}
+
+/* ===========================
+   PRODUCT IMAGE
+=========================== */
+
+.right{
+    position:relative;
+}
+
+#productImage{
+    transition:.3s;
+    user-select:none;
+    -webkit-user-drag:none;
+}
+
+#productImage:hover{
+    transform:scale(1.02);
+}
+
+/* ===========================
+   LOGO IMAGE
+=========================== */
+
+#logoImage{
+    cursor:pointer;
+    transition:.3s;
+}
+
+#logoImage:hover{
+    transform:scale(1.05);
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#c89b2c;
+    border-radius:20px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:900px){
+
+body{
+    padding:10px;
+}
+
+.toolbar{
+    width:100%;
+    flex-wrap:wrap;
+}
+
+.page{
+    width:100%;
+    height:auto;
+    aspect-ratio:210/297;
+}
+
+.main{
+    flex-direction:column;
+    gap:25px;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+footer{
+    position:relative;
+    margin-top:30px;
+    left:0;
+    right:0;
+    bottom:0;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
+}
+
+.bottomBox{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.priceCircle{
+    margin-bottom:20px;
+}
+
+}
+
+/* ===========================
+   DOWNLOAD MODE
+=========================== */
+
+.download-mode .toolbar{
+    display:none;
+}
+
+.download-mode [contenteditable]:focus{
+    outline:none;
 }
