@@ -1,44 +1,195 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Independence Theme Catalogue</title>
+
+<title>Premium Independence Catalogue</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<div class="page">
-  <div class="top-band saffron"></div>
 
-  <div class="header">
-    <h1 contenteditable="true">YOUR BRAND NAME</h1>
-    <p contenteditable="true">Independence Day Premium Collection</p>
-  </div>
+<div class="toolbar">
 
-  <div class="content">
-    <div class="drop-area" id="dropArea">
-      <input type="file" id="fileInput" accept="image/*" hidden>
-      <img id="preview" alt="">
-      <span id="placeholder">Drag & Drop Product Image<br>or Click Here</span>
-    </div>
+<button id="downloadPNG">
+📥 Download PNG
+</button>
 
-    <div class="details">
-      <h2 contenteditable="true">Product Name</h2>
-      <p contenteditable="true"><b>Price:</b> ₹999</p>
-      <p contenteditable="true"><b>Description:</b> Write product details here.</p>
-      <ul contenteditable="true">
-        <li>Premium Quality</li>
-        <li>Limited Edition</li>
-        <li>Made in India 🇮🇳</li>
-      </ul>
-    </div>
-  </div>
+<button id="downloadPDF">
+📄 Download PDF
+</button>
 
-  <div class="chakra"></div>
-  <div class="bottom-band green"></div>
 </div>
 
+<div id="catalogue">
+
+<div class="topBorder"></div>
+
+<header>
+
+<div class="logoArea">
+
+<div class="logoDrop" id="logoDrop">
+
+<input type="file"
+id="logoInput"
+accept="image/*"
+hidden>
+
+<img id="logoPreview">
+
+<span>Drop Logo</span>
+
+</div>
+
+</div>
+
+<div class="brand">
+
+<h1 contenteditable="true">
+BHAGWAN DECORATION
+</h1>
+
+<p contenteditable="true">
+Premium Independence Collection
+</p>
+
+</div>
+
+</header>
+
+<section class="main">
+
+<div class="left">
+
+<div class="badge"
+contenteditable="true">
+ITEM CODE
+</div>
+
+<h2 contenteditable="true">
+Premium Product Name
+</h2>
+
+<p contenteditable="true">
+Write Premium Description Here...
+</p>
+
+<div class="feature">
+
+✔ Premium Quality
+
+</div>
+
+<div class="feature">
+
+✔ Made In India
+
+</div>
+
+<div class="feature">
+
+✔ Attractive Finish
+
+</div>
+
+<div class="feature">
+
+✔ Best Seller
+
+</div>
+
+<div class="price">
+
+<span contenteditable="true">
+
+₹499
+
+</span>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="imageDrop"
+id="imageDrop">
+
+<input
+type="file"
+accept="image/*"
+id="imageInput"
+hidden>
+
+<img id="productPreview">
+
+<div class="placeholder">
+
+Drop Product Image
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="card">
+
+<h3>Packing</h3>
+
+<p contenteditable="true">
+10 PCS
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Size</h3>
+
+<p contenteditable="true">
+12 Inch
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Category</h3>
+
+<p contenteditable="true">
+Decoration
+</p>
+
+</div>
+
+</footer>
+
+<div class="chakra"></div>
+
+<div class="bottomBorder"></div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <script src="script.js"></script>
+
 </body>
 </html>
