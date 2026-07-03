@@ -1,96 +1,75 @@
-// -----------------------------
-// Product Image Upload
-// -----------------------------
 
-const imageDrop = document.getElementById("imageDrop");
-const imageInput = document.getElementById("imageInput");
-const productPreview = document.getElementById("productPreview");
-const placeholder = document.querySelector(".placeholder");
+const productDrop=document.getElementById("imageDrop");
+const productInput=document.getElementById("imageInput");
+const productImg=document.getElementById("productPreview");
+const placeholder=document.querySelector(".placeholder");
 
-imageDrop.addEventListener("click", () => {
-    imageInput.click();
+productDrop.onclick=()=>productInput.click();
+
+productInput.onchange=e=>{
+loadImage(e.target.files[0]);
+};
+
+productDrop.addEventListener("dragover",e=>{
+e.preventDefault();
+productDrop.style.borderColor="#0b7cff";
 });
 
-imageInput.addEventListener("change", function () {
-    loadProduct(this.files[0]);
+productDrop.addEventListener("dragleave",()=>{
+productDrop.style.borderColor="#d4af37";
 });
 
-imageDrop.addEventListener("dragover", function (e) {
-    e.preventDefault();
-    imageDrop.style.borderColor = "#0b7cff";
+productDrop.addEventListener("drop",e=>{
+e.preventDefault();
+productDrop.style.borderColor="#d4af37";
+loadImage(e.dataTransfer.files[0]);
 });
 
-imageDrop.addEventListener("dragleave", function () {
-    imageDrop.style.borderColor = "gold";
-});
+function loadImage(file){
 
-imageDrop.addEventListener("drop", function (e) {
+if(!file)return;
 
-    e.preventDefault();
+const reader=new FileReader();
 
-    imageDrop.style.borderColor = "gold";
+reader.onload=e=>{
 
-    loadProduct(e.dataTransfer.files[0]);
+productImg.src=e.target.result;
 
-});
-
-function loadProduct(file){
-
-if(!file) return;
-
-const reader = new FileReader();
-
-reader.onload=function(e){
-
-productPreview.src=e.target.result;
-
-productPreview.style.display="block";
+productImg.style.display="block";
 
 placeholder.style.display="none";
 
-}
+};
 
 reader.readAsDataURL(file);
 
 }
 
 
-
-// -----------------------------
-// Logo Upload
-// -----------------------------
+// Logo
 
 const logoDrop=document.getElementById("logoDrop");
-
 const logoInput=document.getElementById("logoInput");
-
 const logoPreview=document.getElementById("logoPreview");
-
-const logoText=logoDrop.querySelector("span");
+const logoText=document.querySelector(".drop-text");
 
 logoDrop.onclick=()=>logoInput.click();
 
-logoInput.onchange=()=>loadLogo(logoInput.files[0]);
+logoInput.onchange=e=>{
+
+loadLogo(e.target.files[0]);
+
+};
 
 logoDrop.addEventListener("dragover",e=>{
 
 e.preventDefault();
-
-logoDrop.style.borderColor="#0b7cff";
-
-});
-
-logoDrop.addEventListener("dragleave",()=>{
-
-logoDrop.style.borderColor="gold";
 
 });
 
 logoDrop.addEventListener("drop",e=>{
 
 e.preventDefault();
-
-logoDrop.style.borderColor="gold";
 
 loadLogo(e.dataTransfer.files[0]);
 
@@ -102,7 +81,7 @@ if(!file)return;
 
 const reader=new FileReader();
 
-reader.onload=function(e){
+reader.onload=e=>{
 
 logoPreview.src=e.target.result;
 
@@ -110,7 +89,7 @@ logoPreview.style.display="block";
 
 logoText.style.display="none";
 
-}
+};
 
 reader.readAsDataURL(file);
 
@@ -118,51 +97,48 @@ reader.readAsDataURL(file);
 
 
 
-// -----------------------------
-// Download PNG
-// -----------------------------
+// PNG Download
 
-document.getElementById("downloadPNG").onclick=function(){
+document.getElementById("downloadPNG").onclick=async()=>{
 
-html2canvas(document.querySelector("#catalogue"),{
+const canvas=await html2canvas(document.getElementById("catalogue"),{
 
 scale:3,
 
+backgroundColor:"#ffffff",
+
 useCORS:true
-
-}).then(canvas=>{
-
-const link=document.createElement("a");
-
-link.download="Catalogue.png";
-
-link.href=canvas.toDataURL();
-
-link.click();
 
 });
 
-}
+const a=document.createElement("a");
+
+a.download="Catalogue.png";
+
+a.href=canvas.toDataURL("image/png");
+
+a.click();
+
+};
 
 
+// PDF Download
 
-// -----------------------------
-// Download PDF
-// -----------------------------
+document.getElementById("downloadPDF").onclick=async()=>{
 
-document.getElementById("downloadPDF").onclick=function(){
-
-html2canvas(document.querySelector("#catalogue"),{
+const canvas=await html2canvas(document.getElementById("catalogue"),{
 
 scale:3,
 
+backgroundColor:"#ffffff",
+
 useCORS:true
 
-}).then(canvas=>{
+});
 
 const img=canvas.toDataURL("image/png");
 
-const { jsPDF } = window.jspdf;
+const {jsPDF}=window.jspdf;
 
 const pdf=new jsPDF("p","mm","a4");
 
@@ -170,15 +146,10 @@ pdf.addImage(img,"PNG",0,0,210,297);
 
 pdf.save("Catalogue.pdf");
 
-});
-
-}
+};
 
 
-
-// -----------------------------
-// Editable Protection
-// -----------------------------
+// Disable spellcheck
 
 document.querySelectorAll("[contenteditable]").forEach(el=>{
 
@@ -187,20 +158,17 @@ el.spellcheck=false;
 });
 
 
-
-// -----------------------------
-// Gold Shine Animation
-// -----------------------------
+// Gold glow animation
 
 setInterval(()=>{
 
-document.querySelectorAll(".badge,.toolbar button").forEach(el=>{
+document.querySelectorAll(".toolbar button,.code").forEach(el=>{
 
 el.animate([
 
 {filter:"brightness(1)"},
 
-{filter:"brightness(1.35)"},
+{filter:"brightness(1.3)"},
 
 {filter:"brightness(1)"}
 
